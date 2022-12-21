@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS codenet_db;
+CREATE DATABASE codenet_db;
+

@@ -1,31 +1,22 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Post extends Model {}
+class Language extends Model {}
 
-Post.init(
+Language.init(
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    text: {
-      type: DataTypes.TEXT,
+    language_name: {
+      type: DataTypes.STRING,
       allowNull: false,
-    },
-    like_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: "like",
-        key: "id",
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: "user",
         key: "id",
@@ -37,8 +28,8 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "post",
+    modelName: "language",
   }
 );
 
-module.exports = Post;
+module.exports = Language;
