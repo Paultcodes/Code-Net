@@ -24,7 +24,7 @@ User.init(
     github_url: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: true,
+      unique: false,
     },
     password: {
       type: DataTypes.STRING,
