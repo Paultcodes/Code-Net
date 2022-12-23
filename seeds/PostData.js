@@ -20,6 +20,14 @@ const postData = [
         text: "Hello hi world",
         likes: 4,
         user_id: 4
+    },
+    {
+        text: `function sayHi(){
+            console.log("Hello")
+        }`,
+        likes: 4,
+        user_id: 4,
+        is_code: true
     }
 ];
 
