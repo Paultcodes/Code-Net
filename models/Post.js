@@ -19,6 +19,10 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    is_code: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
