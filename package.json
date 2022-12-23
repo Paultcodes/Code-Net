@@ -8,5 +8,23 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
     "sequelize": "^6.28.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "code-net",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paultcodes/Code-Net.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paultcodes/Code-Net/issues"
+  },
+  "homepage": "https://github.com/Paultcodes/Code-Net#readme"
 }

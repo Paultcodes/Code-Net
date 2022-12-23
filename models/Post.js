@@ -15,13 +15,9 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    like_id: {
+    likes: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: "like",
-        key: "id",
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
