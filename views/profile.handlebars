@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="box">
+        <img src="" alt="">
+        <h1> {{user.user_name}} </h1>
+        <h2>Level: {{user.level}}</h2>
+        <h2>GitHub: {{user.github_url}}</h2>
+        <h2>Languages</h2>
+            <ul>
+                {{#each }}
+                <li>{{user.language_id}}</li>
+                {{/each}}
+            </ul>
+    </div>
+     {{#each posts as |post|}}
+        <div class="post">
+            <section class="p">
+            <h3>{{post.user_id}}</h3>
+            <h3>{{post.like_id}}</h3>
+            <p>{{post.text}}</p>
+            <button class="like-btn" id="`post.post_id`">like</button>
+            </section>
+        </div>
+    {{/each}}           
+</div>
