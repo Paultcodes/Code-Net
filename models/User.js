@@ -19,12 +19,16 @@ User.init(
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
     },
     github_url: {
       type: DataTypes.STRING,
       allowNull: true,
       unique: false,
+    },
+    pic: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,

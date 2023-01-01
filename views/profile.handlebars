@@ -1,24 +1,53 @@
-<div class="container">
-    <div class="box">
-        <img src="" alt="">
-        <h1> {{user.user_name}} </h1>
-        <h2>Level: {{user.level}}</h2>
-        <h2>GitHub: {{user.github_url}}</h2>
-        <h2>Languages</h2>
-            <ul>
-                {{#each }}
-                <li>{{user.language_id}}</li>
-                {{/each}}
-            </ul>
+<div class='profile-container'>
+  <div class='left-container'>
+    <div class='top-portfolio standard-flex'>
+      <h3 class='username'>{{allData.user_name}}</h3>
+      {{#if highLevel}}
+        <img class='profile-pic glow' src='../images/avatar2.png' alt='' />
+      {{else}}
+        <img class='profile-pic' src='{{allData.pic}}' alt='' />
+
+      {{/if}}
+      <h3 class='total-likes user-info'><i class='fa-solid fa-thumbs-up'></i>
+        {{allData.likes}}</h3>
+      <h3 class='user-level user-info'>Level {{allData.level}}</h3>
+
     </div>
-     {{#each posts as |post|}}
-        <div class="post">
-            <section class="p">
-            <h3>{{post.user_id}}</h3>
-            <h3>{{post.like_id}}</h3>
-            <p>{{post.text}}</p>
-            <button class="like-btn" id="`post.post_id`">like</button>
-            </section>
+    <div class='bottom-portfolio standard-flex'>
+      <h3 class='github-icon'><a href='#'><i
+            class='fa-brands fa-github'
+          ></i></a></h3>
+      <ul class='languages'>
+        {{#each allData.languages as |language|}}
+          <li>{{language.language_name}}</li>
+
+        {{/each}}
+
+      </ul>
+
+    </div>
+  </div>
+  <div class='right-container'>
+    <div class='users-posts'>
+
+      {{#each allData.posts as |post|}}
+
+        <div class='post-text'>
+          <div class='top-card card-flex'>
+            <h3>Paul</h3>
+            <h3>5/4/22</h3>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+            ex beatae, repellat distinctio hic sit, magni unde recusandae nihil
+            exercitationem libero. Expedita quidem in sequi cum dignissimos
+            voluptatem dolorum praesentium.</p>
+          <div class='bottom-card card-flex'>
+            <i class='fa-solid fa-thumbs-up'></i>
+            <h3>{{post.likes}} Likes</h3>
+          </div>
         </div>
-    {{/each}}           
+      {{/each}}
+
+    </div>
+  </div>
 </div>
