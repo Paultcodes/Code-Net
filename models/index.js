@@ -2,7 +2,9 @@ const Post = require('./Post');
 const User = require('./User');
 const Language = require('./Language');
 const Like = require('./Like');
+const Comment = require('./Comment');
 const UserLanguages = require('./UserLanguage');
+const { post } = require('../controllers/profile-routes');
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -10,6 +12,22 @@ User.hasMany(Post, {
 
 Post.hasOne(User, {
   foreignKey: 'user_id',
+});
+
+Comment.belongsTo(User, {
+  foreignKey: 'post_id',
+});
+
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+});
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+});
+
+Post.hasMany(Comment, {
+  foreignKey: 'post_id',
 });
 
 Like.belongsTo(User, {
@@ -36,4 +54,4 @@ Language.belongsToMany(User, {
   through: UserLanguages,
 });
 
-module.exports = { Post, User, Language, Like, UserLanguages };
+module.exports = { Post, User, Language, Like, UserLanguages, Comment };
