@@ -10,9 +10,9 @@ User.hasMany(Post, {
   foreignKey: 'user_id',
 });
 
-Post.hasOne(User, {
-  foreignKey: 'user_id',
-});
+Post.belongsTo(User, {
+  foreignKey: 'user_id'
+})
 
 Comment.belongsTo(User, {
   foreignKey: 'post_id',
