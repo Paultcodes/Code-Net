@@ -1,0 +1,37 @@
+<main class='main-section'>
+</main>
+<div class='all-post-section'>
+  {{#each data as |posts|}}
+
+    <div class='slide-top card'>
+      <p>{{posts.user.user_name}} Level {{posts.user.level}}</p>
+      {{#if posts.is_code}}
+        <pre>
+          <code class='language-javascript'>
+            {{posts.text}}
+          </code>
+        </pre>
+      {{else}}
+        <h3>{{posts.text}}</h3>
+      {{/if}}
+      <div class='button-section'>
+        <button
+          data-user-id='{{posts.user.id}}'
+          data-post-id='{{posts.id}}'
+          class='like-button'
+        >
+          <i class='fa-solid fa-thumbs-up'></i>
+        </button>
+        {{#if_cond posts.likes '===' 0}}
+
+        {{else}}
+
+        <p>{{posts.likes}} likes</p>
+          
+        {{/if_cond}}
+      </div>
+    </div>
+  {{/each}}
+</div>
+<script src='../js/createPost.js'></script>
+<script src='../js/prism.js'></script>
