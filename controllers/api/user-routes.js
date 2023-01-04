@@ -6,6 +6,7 @@ router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
       user_name: req.body.userName,
+      pic: req.body.picName,
       password: req.body.password,
       github_url: req.body.github,
     });
@@ -31,14 +32,14 @@ router.post('/login', async (req, res) => {
     });
 
     if (!dbUserData) {
-      res.status(400).json({ message: 'Incorrect email or password' });
+      res.status(400).json({ message: 'Incorrect username or password' });
       return;
     }
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      req.status(400).json({ message: 'Incorrect email or password' });
+      req.status(400).json({ message: 'Incorrect username or password' });
       return;
     }
 

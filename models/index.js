@@ -4,7 +4,7 @@ const Language = require('./Language');
 const Like = require('./Like');
 const Comment = require('./Comment');
 const UserLanguages = require('./UserLanguage');
-const { post } = require('../controllers/profile-routes');
+
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
