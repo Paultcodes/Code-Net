@@ -4,15 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
-  font-family: 'Comfortaa', cursive;
-}
+
 
 .nav-section {
   display: flex;
@@ -23,8 +15,9 @@ body {
 
 .logo {
   font-weight: 900;
-  font-size: 50px;
-  color: rgb(215, 98, 245);
+  font-size: 40px;
+  color: darkgreen;
+
 }
 
 .links {
@@ -64,7 +57,6 @@ body {
 a {
   text-decoration: none;
   font-size: 20px;
-  color: rgb(215, 98, 245);
 }
 
 li {
