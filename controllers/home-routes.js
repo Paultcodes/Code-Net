@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Language, Comment } = require('../models');
 
 //Route to get all posts
+//Route to get all posts
 
 router.get('/', async (req, res) => {
   try {
