@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+/* body {
   background: rgb(238, 174, 202);
   background: radial-gradient(
     circle,
@@ -12,7 +12,7 @@ body {
     rgba(148, 187, 233, 1) 100%
   );
   font-family: 'Comfortaa', cursive;
-}
+} */
 
 .nav-section {
   display: flex;
