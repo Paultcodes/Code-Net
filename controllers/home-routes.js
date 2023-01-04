@@ -37,4 +37,34 @@ router.post('/create', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const singlePost = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+      attributes: ['text', 'likes', 'is_code', 'user_id'],
+      include: [
+        {
+          model: User,
+          attributes: ['user_name'],
+        },
+        {
+          model: Comment,
+          attributes: ['text', 'post_id', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['user_name'],
+          },
+        },
+      ],
+    });
+
+    const post = singlePost.get({ plain: true });
+    res.render('singlePost', { post });
+  } catch (err) {
+    res.status(500).json({ message: 'Unable to find this post' });
+  }
+});
+
 module.exports = router;
