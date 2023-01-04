@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Post,
-          attributes: ['text', 'likes'],
+          attributes: ['id','text', 'likes'],
         },
         {
           model: Language,
