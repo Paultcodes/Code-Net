@@ -21,6 +21,21 @@ User.init(
       allowNull: false,
       unique: false,
     },
+
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    bio: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     github_url: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -56,7 +71,7 @@ User.init(
       },
     },
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'user',

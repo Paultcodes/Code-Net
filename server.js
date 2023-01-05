@@ -43,7 +43,7 @@ app.use(routes);
 
 //This code is using the sync method from the Sequelize library to synchronize the models with the database.
 //The force: true option means that the synchronization will drop any existing tables and recreate them based on the models.
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false}).then(() => {
   app.listen(PORT, () =>
     console.log(
       `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
