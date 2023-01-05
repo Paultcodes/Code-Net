@@ -1,109 +1,133 @@
-<div class='profile-container'>
-  <div class='left-container'>
-    <div class='top-portfolio standard-flex'>
-      <h3 class='username'>{{allData.user_name}}</h3>
-      {{#if highLevel}}
-        <img class='profile-pic glow' src='../images/avatar2.png' alt='' />
-      {{else}}
-        <img class='profile-pic' src='{{allData.pic}}' alt='' />
+   <div class="main-container profile-container">
+      <div class="nav-left-side">
+        <a href="/"><i class="fa-solid fa-house"></i></a>
+        <a href="/profile/1"><i class="fa-solid fa-user profile-button"></i></a>
+        <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+        <button id="modalBtn" class="button-m">
+          <i class="fa-solid fa-star"></i>
+        </button>
+        <!-- <button id="postModalButton" class="button-m">
+         post
+        </button> -->
+        <a id="postModalButton" class="write-button" href="#"><i class="fa-solid fa-pen"></i></a>
+      </div>
+      <div class="main-post-middle profile-container">
+        <h4 class="username username-top">{{allData.first_name}} {{allData.last_name}}</h4>
 
-      {{/if}}
-      <h3 class='total-likes user-info'><i class='fa-solid fa-thumbs-up'></i>
-        {{allData.likes}}</h3>
-      <h3 class='user-level user-info'>Level {{allData.level}}</h3>
+        
+        <img src="/images/header.jpg" alt="" />
+        <img class="avatar-pic" src="/images/avatar1.png" alt="" />
+        <div class="middle-user-info">
+          <p class="username-profile">{{allData.first_name}} {{allData.last_name}}</p>
 
-    </div>
-    <div class='bottom-portfolio standard-flex'>
-      <h3 class='github-icon'><a href='#'><i
-            class='fa-brands fa-github'
-          ></i></a></h3>
-      <ul class='languages'>
-        {{#each allData.languages as |language|}}
-          <li>{{language.language_name}}</li>
+          <p class="under-username">@{{allData.user_name}}</p>
 
-        {{/each}}
+          <p>{{allData.bio}}</p>
 
-      </ul>
+          <p class="joined"><i class="fa-solid fa-calendar-days"></i> Joined {{format_date allData.created_at}}</p>
 
-    </div>
-  </div>
-  <div class='right-container'>
-    <div class='users-posts'>
-
-      {{#each allData.posts as |post|}}
-
-        <div class='post-text'>
-          <div class='top-card card-flex'>
-            <h3>Paul</h3>
-            <h3>5/4/22</h3>
-          </div>
-          <p>{{post.text}}</p>
-          <div class='bottom-card card-flex'>
-            <i class='fa-solid fa-thumbs-up'></i>
-            <button
-              data-post-id='{{post.id}}'
-              class='delete-button'
-            >Delete</button>
-            <h3>{{post.likes}} Likes</h3>
+          <div class="user-amount">
+            {{allData.likes}} <span class="bright-text">Likes</span> {{allData.posts.length}}
+            <span class="bright-text">Posts</span>
           </div>
         </div>
-      {{/each}}
-      <div class='post-text'>
-        <div class='top-card card-flex'>
-          <h3>Paul</h3>
-          <h3>5/4/22</h3>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ex
-          beatae, repellat distinctio hic sit, magni unde recusandae nihil
-          exercitationem libero. Expedita quidem in sequi cum dignissimos
-          voluptatem dolorum praesentium.</p>
-        <div class='bottom-card card-flex'>
-          <i class='fa-solid fa-thumbs-up'></i>
-          <button
-            data-post-id='{{post.id}}'
-            class='delete-button'
-          >Delete</button>
-          <h3>{{post.likes}} Likes</h3>
-        </div>
-      </div>
-      <div class='post-text'>
-        <div class='top-card card-flex'>
-          <h3>Paul</h3>
-          <h3>5/4/22</h3>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ex
-          beatae, repellat distinctio hic sit, magni unde recusandae nihil
-          exercitationem libero. Expedita quidem in sequi cum dignissimos
-          voluptatem dolorum praesentium.</p>
-        <div class='bottom-card card-flex'>
-          <i class='fa-solid fa-thumbs-up'></i>
-          <button
-            data-post-id='{{post.id}}'
-            class='delete-button'
-          >Delete</button>
-          <h3>{{post.likes}} Likes</h3>
-        </div>
-      </div>
-      <div class='post-text'>
-        <div class='top-card card-flex'>
-          <h3>Paul</h3>
-          <h3>5/4/22</h3>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ex
-          beatae, repellat distinctio hic sit, magni unde recusandae nihil
-          exercitationem libero. Expedita quidem in sequi cum dignissimos
-          voluptatem dolorum praesentium.</p>
-        <div class='bottom-card card-flex'>
-          <i class='fa-solid fa-thumbs-up'></i>
-          <button
-            data-post-id='{{post.id}}'
-            class='delete-button'
-          >Delete</button>
-          <h3>{{post.likes}} Likes</h3>
-        </div>
-      </div>
+        <div class="all-posts">
 
+          {{#each allData.posts as |post|}}
+            
+          <div class="post">
+            <div class="text-post">
+              <div class="pic">
+                <img class="post-image" src="{{post.user.pic}}" alt="" />
+              </div>
+              <div class="post-text">
+                <p class="post-user-name">
+                  {{post.user.user_name}}<span class="post-date"> · @{{post.user.user_name}}</span> <span class="post-date">{{format_date post.created_at}}</span>
+                </p>
+                <p>
+                 {{post.text}}
+                </p>
+              </div>
+            </div>
+            <div class="button-section">
+              <button class="like-button post-button">
+                <i class="fa-solid fa-heart"></i>{{post.likes}}
+              </button>
+              <button class="comment-button post-button">
+                <i class="fa-solid fa-comment"></i>
+              </button>
+            </div>
+          </div>
+          {{/each}}
+
+   
+
+        
+
+        
+        </div>
+      </div>
+      <div id="simpleModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div class="modal-stuff">
+            <div class="left-modal mod">
+              <h1>{{allData.level}}</h1>
+              <h3>Level</h3>
+            </div>
+            <div class="middle-modal mod">
+              <h1>{{allData.likes}}</h1>
+              <h3>Likes</h3>
+            </div>
+            <div class="middle-modal mod">
+              <h1>{{allData.posts.length}}</h1>
+              <h3>Posts</h3>
+            </div>
+            <div class="right-modal">
+              <ul>
+                {{#each allData.languages as |lang|}}
+                  
+                <li>{{lang.language_name}}</li>
+                {{/each}}
+              </ul>
+            </div>
+
+          </div>
+          
+        </div>
+      </div>
+     <div id="postModal" class="modal">
+        <div class="modal-content">
+          
+          <span class="close-button-post">&times;</span>
+          <main class='main-section'>
+            <h2 class="on-mind">Whats on your mind?</h2>
+            <div class='post-section'>
+              <button id="modal-submit-button" data-type="text" class='submit-post'><i class='fa-solid fa-pen'></i></button>
+              <textarea id="modal-textarea" class='post-input' id='multiliner' name='multiliner'></textarea>
+              <button id="modal-submit-button" data-type="code" class='submit-post'>
+                <i class='fa-solid fa-code'></i>
+              </button>
+            </div>
+          </main>
+
+          </div>
+          
+        </div>
+
+      <div class="right-profile-side profile-container">
+        <h2 class="whats-happening">Whats Happening</h2>
+        <div class="news">
+
+          
+        </div>
+
+
+        </div>
+    
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 <script src='../js/deletePost.js'></script>
+<script src="/js/javascript.js"></script>
+<script src="/js/modalJs.js"></script>

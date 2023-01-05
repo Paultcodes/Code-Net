@@ -1,12 +1,20 @@
-const submitPostHandler = async (event) => {
-  event.preventDefault();
+const submitPost = document.querySelectorAll('.submit-post');
+let postType;
+let type;
+
+const submitPostHandler = async () => {
+  if (postType === 'text') {
+    type = false;
+  } else {
+    type = true;
+  }
 
   const postInput = document.querySelector('.post-input').value.trim();
 
   if (postInput) {
     const response = await fetch('/create', {
       method: 'POST',
-      body: JSON.stringify({ postInput }),
+      body: JSON.stringify({ postInput, type }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -17,9 +25,12 @@ const submitPostHandler = async (event) => {
   }
 };
 
-const submitPost = document
-  .querySelector('.submit-post')
-  .addEventListener('click', submitPostHandler);
+for (let i = 0; i < submitPost.length; i++) {
+  submitPost[i].addEventListener('click', function () {
+    postType = submitPost[i].getAttribute('data-type');
+    submitPostHandler();
+  });
+}
 
 //like button is clicked
 //Update Like table = Need id of post that is liked and id of user that liked it (req.session.user_id)
@@ -43,7 +54,8 @@ for (let i = 0; i < allLikeButtons.length; i++) {
     });
 
     if (response.ok) {
-      document.location.reload();
+      // document.location.reload();
+      allLikeButtons[i].textContent ++
     } else {
       alert('Failed to like post...');
     }

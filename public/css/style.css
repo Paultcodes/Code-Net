@@ -27,37 +27,20 @@ li {
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(43, 41, 41);
+  background: rgb(245, 241, 241);
+  background: linear-gradient(
+    90deg,
+    rgba(245, 241, 241, 1) 0%,
+    rgba(199, 195, 195, 1) 47%,
+    rgba(231, 222, 222, 1) 100%
+  );
   font-family: 'Courier New', Courier, monospace;
   color: rgb(255, 255, 255);
   align-items: center;
   justify-content: center;
 }
 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
 
-.topnav a {
-  float: left;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  font-weight: bolder;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.split {
-  float: right;
-  background-color: #04aa6d;
-  color: white;
-}
 
 .left-container {
   display: flex;
@@ -77,9 +60,10 @@ body {
 .profile-container {
   display: flex;
   justify-content: space-around;
-  /* flex-direction: row; */
+  flex-direction: row;
   align-items: center;
   padding: 15px;
+  
   /* margin-top: 3%; */
   background-image: url('../images/pexels-markus-spiske-1089438.jpg');
 }
@@ -176,7 +160,6 @@ body {
 }
 
 .glow {
-  
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
@@ -184,24 +167,26 @@ body {
 
 @-webkit-keyframes glow {
   from {
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073,
+      0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
   }
   to {
-    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }
 
 .users-posts::-webkit-scrollbar {
-  width: 7px; 
+  width: 7px;
 }
 
 .users-posts::-webkit-scrollbar-track {
-  background: rgb(129, 128, 127); 
+  background: rgb(129, 128, 127);
 }
 
 .users-posts::-webkit-scrollbar-thumb {
-  background-color: rgb(221, 247, 221); 
-  border-radius: 20px; 
+  background-color: rgb(221, 247, 221);
+  border-radius: 20px;
 }
 
 @media (max-width: 1000px) {
@@ -216,14 +201,10 @@ body {
   .post-text {
     max-height: fit-content;
     max-width: fit-content;
-
   }
 
   .left-container {
     width: 300px;
     margin-bottom: 4%;
   }
-
-  
 }
-
