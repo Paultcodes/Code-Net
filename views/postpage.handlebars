@@ -14,6 +14,9 @@
       {{else}}
         <h3>{{posts.text}}</h3>
       {{/if}}
+      <div class="comment-section">
+        {{comment.text}}
+      </div>
       <div class='button-section'>
         <button
           data-user-id='{{posts.user.id}}'
@@ -33,5 +36,4 @@
     </div>
   {{/each}}
 </div>
-<script src='../js/createPost.js'></script>
 <script src='../js/prism.js'></script>
