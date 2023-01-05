@@ -28,6 +28,14 @@ var helper = {
   shortText: (text, n) => {
     return text.substring(0, n - 1);
   },
+
+  format_date: (date) => {
+    return `${new Date(date).getMonth() + 1}/${new Date(
+      date
+    ).getDate()}/${new Date(date).getFullYear()}`;
+  },
 };
+
+
 
 module.exports = helper;

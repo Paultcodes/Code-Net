@@ -31,6 +31,10 @@ router.post('/like', async (req, res) => {
 
       await userData.increment('likes');
 
+      if (userData.likes >= 3) {
+        userData.increment('level');
+      }
+
       const postData = await Post.findOne({
         where: {
           id: req.body.postId,

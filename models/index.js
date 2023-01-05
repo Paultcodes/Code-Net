@@ -5,14 +5,13 @@ const Like = require('./Like');
 const Comment = require('./Comment');
 const UserLanguages = require('./UserLanguage');
 
-
 User.hasMany(Post, {
   foreignKey: 'user_id',
 });
 
 Post.belongsTo(User, {
-  foreignKey: 'user_id'
-})
+  foreignKey: 'user_id',
+});
 
 Comment.belongsTo(User, {
   foreignKey: 'post_id',
@@ -20,6 +19,7 @@ Comment.belongsTo(User, {
 
 Comment.belongsTo(Post, {
   foreignKey: 'post_id',
+  onDelete: 'CASCADE',
 });
 
 User.hasMany(Comment, {
@@ -28,6 +28,7 @@ User.hasMany(Comment, {
 
 Post.hasMany(Comment, {
   foreignKey: 'post_id',
+  onDelete: 'CASCADE',
 });
 
 Like.belongsTo(User, {
