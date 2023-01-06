@@ -33,7 +33,7 @@ User.init(
     },
 
     bio: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     github_url: {
@@ -49,7 +49,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [4],
       },
     },
     level: {
