@@ -1,0 +1,31 @@
+.avatar, .pic-pro
+{
+    text-align: center;
+    margin: auto;
+    display: flex;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    transition: all .5s;
+    cursor: pointer;
+    opacity: 100%;
+    /* outline: calc(100px/2) solid #0009;
+    outline-offset: calc(100px/-2); */
+}
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.avatar:hover {
+    outline: 8px solid white;
+    outline-offset: 8px;
+}
+
+.signuplogo {
+    font-size: 69px;
+    text-align: center;
+    justify-content: center;
+}
