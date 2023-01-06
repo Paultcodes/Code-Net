@@ -1,38 +1,50 @@
-const { User } = require("../models");
+const { User } = require('../models');
 
 const userData = [
-    {
-        user_name: "John",
-        github_url: "https://github.com",
-        password: "password",
-        level: 1,
-        language_id: [1, 2],
-        likes: 2
-    },
-    {
-        user_name: "Jacob",
-        github_url: "https://github.com",
-        password: "password",
-        level: 3,
-        language_id: [1],
-        likes: 8
-    },
-    {
-        user_name: "Jingleheimer",
-        github_url: "https://github.com",
-        password: "password",
-        level: 6,
-        language_id: [1, 2, 3],
-        likes: 26
-    },
-    {
-        user_name: "Schmidt",
-        github_url: "https://github.com",
-        password: "password",
-        level: 9,
-        language_id: [1, 2],
-        likes: 299
-    }
+  {
+    user_name: 'jonCoder523',
+    first_name: 'John',
+    last_name: 'Smith',
+    bio: 'Full Stack Software Engineer',
+    github_url: 'https://github.com',
+    password: 'password',
+    pic: '/images/avatar1.png',
+    level: 1,
+    likes: 2,
+  },
+  {
+    user_name: 'jc333',
+    first_name: 'Jacob',
+    last_name: 'Green',
+    bio: 'My own posts',
+    github_url: 'https://github.com',
+    password: 'password',
+    pic: '/images/avatar2.png',
+    level: 3,
+    likes: 8,
+  },
+  {
+    user_name: 'Jingleheimer333',
+    first_name: 'Jen',
+    last_name: 'Ray',
+    bio: 'I love cats',
+    github_url: 'https://github.com',
+    password: 'password',
+    pic: '/images/avatar3.png',
+    level: 6,
+    likes: 26,
+  },
+  {
+    user_name: 'topcoder452',
+    first_name: 'Jake',
+    last_name: 'Cook',
+    bio: 'I am the best',
+    github_url: 'https://github.com',
+    password: 'password',
+    pic: '/images/avatar4.png',
+    level: 9,
+    likes: 299,
+  },
 ];
 
 const seedUser = async () => await User.bulkCreate(userData);

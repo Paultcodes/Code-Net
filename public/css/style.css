@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(245, 241, 241);
+  background: linear-gradient(
+    90deg,
+    rgba(245, 241, 241, 1) 0%,
+    rgba(199, 195, 195, 1) 47%,
+    rgba(231, 222, 222, 1) 100%
+  );
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.left-container {
+  display: flex;
+  width: 400px;
+  height: 800px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  
+  /* margin-top: 3%; */
+  background-image: url('../images/pexels-markus-spiske-1089438.jpg');
+}
+
+.users-posts {
+  width: 900px;
+  height: 800px;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  align-items: center;
+  padding: 15px;
+
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow-y: auto;
+}
+
+.top-portfolio {
+  display: flex;
+  gap: 1rem;
+}
+
+.github-icon {
+  font-size: 70px;
+}
+
+.standard-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-size: 50px;
+}
+
+.user-info {
+  text-align: center;
+  font-size: 20px;
+  padding: 7px;
+  max-width: fit-content;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.total-likes {
+  width: 100px;
+}
+
+.username {
+  margin-bottom: 17%;
+  text-align: center;
+  font-size: 30px;
+  max-width: fit-content;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.post-text {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 500px;
+  background: rgba(255, 255, 255, 0.459);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+  border-radius: 50%;
+  border: none;
+}
+
+.card-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.glow {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073,
+      0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+.users-posts::-webkit-scrollbar {
+  width: 7px;
+}
+
+.users-posts::-webkit-scrollbar-track {
+  background: rgb(129, 128, 127);
+}
+
+.users-posts::-webkit-scrollbar-thumb {
+  background-color: rgb(221, 247, 221);
+  border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .users-posts {
+    width: 300px;
+  }
+
+  .post-text {
+    max-height: fit-content;
+    max-width: fit-content;
+  }
+
+  .left-container {
+    width: 300px;
+    margin-bottom: 4%;
+  }
+}

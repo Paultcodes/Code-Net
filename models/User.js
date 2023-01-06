@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -19,12 +19,31 @@ User.init(
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
+    },
+
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    bio: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     github_url: {
       type: DataTypes.STRING,
       allowNull: true,
       unique: false,
+    },
+    pic: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
@@ -38,18 +57,11 @@ User.init(
       allowNull: false,
       defaultValue: 1,
     },
-    language_id: {
+
+    likes: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: "language",
-        key: "id",
-      },
     },
-    likes: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-    }
   },
   {
     hooks: {
@@ -59,11 +71,11 @@ User.init(
       },
     },
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: 'user',
   }
 );
 
-module.exports = User
+module.exports = User;
