@@ -14,7 +14,6 @@
     "sequelize": "^6.28.0"
   },
   "scripts": {
-    "start": "node server.js",
     "seed": "node seeds/index.js",
     "devStart": "nodemon server.js"
   },
