@@ -76,6 +76,7 @@ body {
   font-weight: 900;
 }
 
+
 .post-date {
   opacity: 70%;
   font-size: 15px;
@@ -422,4 +423,8 @@ button {
 .main-post-middle::-webkit-scrollbar-thumb {
   background-color: rgb(0, 0, 0);
   border-radius: 20px;
+}
+
+.single-post {
+  border: 2px solid green;
 }

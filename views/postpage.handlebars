@@ -20,6 +20,8 @@
         <div class="middle-user-info">
           <main class='main-section'>
             <div class='post-section'>
+              <input class="comment-input" type="text" name="" id="">
+              <button class="submit-comment">Submit</button>
 
             </div>
           </main>
@@ -28,7 +30,7 @@
 
         <div class="all-posts">
 
-          <div class="post">
+          <div class="single-post post">
             <div class="text-post">
               <div class="pic">
                 <img class="post-image" src="{{posts.user.pic}}" alt="" />
@@ -79,7 +81,7 @@
               </div>
               <div class="post-text">
                 <p class="post-user-name">
-                  {{comment.user.first_name}} {{comment.user.last_name}}<span class="post-date"> · @{{comment.user.user_name}}</span> <span class="post-date">{{format_date comment.created_at}}</span>
+                  {{comment.user.first_name}} {{comment.user.last_name}}<span class="post-date"> · commented on</span>{{comment}} <span class="post-date">{{format_date comment.created_at}}</span>
                 </p>
                  {{#if postData.is_code}}
                 <pre>
