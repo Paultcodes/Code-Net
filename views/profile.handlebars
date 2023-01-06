@@ -1,7 +1,7 @@
    <div class="main-container profile-container">
       <div class="nav-left-side">
         <a href="/"><i class="fa-solid fa-house"></i></a>
-        <a href="/profile/1"><i class="fa-solid fa-user profile-button"></i></a>
+        <a href="/profile/{{ses}}"><i class="fa-solid fa-user profile-button"></i></a>
         <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
         <button id="modalBtn" class="button-m">
           <i class="fa-solid fa-star"></i>
@@ -16,7 +16,7 @@
 
         
         <img src="/images/header.jpg" alt="" />
-        <img class="avatar-pic" src="/images/avatar1.png" alt="" />
+        <img class="avatar-pic" src="{{allData.pic}}" alt="" />
         <div class="middle-user-info">
           <p class="username-profile">{{allData.first_name}} {{allData.last_name}}</p>
 
@@ -27,13 +27,13 @@
           <p class="joined"><i class="fa-solid fa-calendar-days"></i> Joined {{format_date allData.created_at}}</p>
 
           <div class="user-amount">
-            {{allData.likes}} <span class="bright-text">Likes</span> {{allData.posts.length}}
+            {{allData.likes}} <span class="bright-text">Likes</span> {{proPosts.length}}
             <span class="bright-text">Posts</span>
           </div>
         </div>
         <div class="all-posts">
 
-          {{#each allData.posts as |post|}}
+          {{#each proPosts as |post|}}
             
           <div class="post">
             <div class="text-post">
@@ -42,7 +42,7 @@
               </div>
               <div class="post-text">
                 <p class="post-user-name">
-                  {{post.user.user_name}}<span class="post-date"> · @{{post.user.user_name}}</span> <span class="post-date">{{format_date post.created_at}}</span>
+                  {{post.user.first_name}} {{post.user.last_name}}<span class="post-date"> · @{{post.user.user_name}}</span> <span class="post-date">{{format_date post.created_at}}</span>
                 </p>
                 <p>
                  {{post.text}}

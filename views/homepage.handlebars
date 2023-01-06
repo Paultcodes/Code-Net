@@ -1,8 +1,11 @@
 <div class="main-container profile-container">
       <div class="nav-left-side">
         <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
-        <a href="/profile/1"><i class="fa-solid fa-user"></i></a>
-        <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+        <a href="/profile/{{userData.id}}"><i class="fa-solid fa-user"></i></a>
+        <button class="button-m logout-button">
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        </button>
         <button id="modalBtn" class="button-m">
           <i class="fa-solid fa-star"></i>
         </button>
@@ -41,7 +44,7 @@
           <div class="post">
             <div class="text-post">
               <div class="pic">
-                <img class="post-image" src="{{posts.user.pic}}" alt="" />
+                <a href="profile/{{posts.user.id}}"><img class="post-image" src="{{posts.user.pic}}" alt="" /></a>
               </div>
               <div class="post-text">
                 <p class="post-user-name">
@@ -64,14 +67,14 @@
             </div>
             <div class="button-section">
               <button data-user-id="{{posts.user.id}}" data-post-id="{{posts.id}}" class="like-button post-button">
-                <i class="fa-solid fa-heart"></i>{{#if_cond posts.likes '===' 0}}{{else}}
-                <span>{{posts.likes}}</span>
+                <i class="fa-solid fa-heart"></i>{{#if_cond posts.likes '===' 0}}<span class="post-total-likes"></span>{{else}}
+                <span class="post-total-likes">{{posts.likes}}</span>
                 {{/if_cond}}  
                   
               </button>
-              <button class="comment-button post-button">
-                <i class="fa-solid fa-comment"></i>
-              </button>
+              <a href="/api/posts/{{posts.id}}"><i class="fa-solid fa-comment"></i></a>
+                
+              
               
               {{#if_cond posts.user.id '===' userData.id}}
               <button>
@@ -153,5 +156,6 @@
 <script src='../js/prism.js'></script>
 <script src="/js/javascript.js"></script>
 <script src="/js/modalJs.js"></script>
+<script src="/js/logout.js"></script>
 
 

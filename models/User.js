@@ -61,6 +61,7 @@ User.init(
     likes: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      defaultValue: 0,
     },
   },
   {

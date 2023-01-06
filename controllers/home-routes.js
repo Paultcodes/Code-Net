@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
     const getUser = await User.findOne({
       where: {
-        id: 1,
+        id: req.session.user_id,
       },
       attributes: ['id', 'user_name', 'pic', 'level', 'likes', 'first_name', 'last_name'],
     });
@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
     const data = allData.map((post) => post.get({ plain: true }));
 
     console.log(data);
+    console.log(req.session.user_id)
     res.render('homepage', { data, userData });
   } catch (err) {
     console.log(err);
@@ -38,7 +39,7 @@ router.post('/create', async (req, res) => {
     const createPost = await Post.create({
       text: req.body.postInput,
       is_code: req.body.type,
-      user_id: 2,
+      user_id: req.session.user_id,
     });
     res.status(200).json(createPost);
   } catch (err) {
@@ -52,7 +53,7 @@ router.post('/create/modal', async (req, res) => {
     const createPost = await Post.create({
       text: req.body.inp,
       is_code: req.body.typePost,
-      user_id: 2,
+      user_id: req.session.user_id,
     });
     res.status(200).json(createPost);
   } catch (err) {
@@ -60,34 +61,34 @@ router.post('/create/modal', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
-  try {
-    const singlePost = await Post.findOne({
-      where: {
-        id: req.params.id,
-      },
-      attributes: ['text', 'likes', 'is_code', 'user_id'],
-      include: [
-        {
-          model: User,
-          attributes: ['user_name'],
-        },
-        {
-          model: Comment,
-          attributes: ['text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['user_name'],
-          },
-        },
-      ],
-    });
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const singlePost = await Post.findOne({
+//       where: {
+//         id: req.params.id,
+//       },
+//       attributes: ['text', 'likes', 'is_code', 'user_id'],
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['user_name'],
+//         },
+//         {
+//           model: Comment,
+//           attributes: ['text', 'post_id', 'user_id', 'created_at'],
+//           include: {
+//             model: User,
+//             attributes: ['user_name'],
+//           },
+//         },
+//       ],
+//     });
 
-    const post = singlePost.get({ plain: true });
-    res.render('singlePost', { post });
-  } catch (err) {
-    res.status(500).json({ message: 'Unable to find this post' });
-  }
-});
+//     const post = singlePost.get({ plain: true });
+//     res.render('singlePost', { post });
+//   } catch (err) {
+//     res.status(500).json({ message: 'Unable to find this post' });
+//   }
+// });
 
 module.exports = router;

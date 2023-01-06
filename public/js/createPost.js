@@ -38,6 +38,7 @@ for (let i = 0; i < submitPost.length; i++) {
 //Update User table = Need id of the user that wrote the post that was liked and increment their total likes by 1
 
 const allLikeButtons = document.querySelectorAll('.like-button');
+var likes = document.querySelectorAll('.post-total-likes')
 
 for (let i = 0; i < allLikeButtons.length; i++) {
   allLikeButtons[i].addEventListener('click', async function (event) {
@@ -55,7 +56,8 @@ for (let i = 0; i < allLikeButtons.length; i++) {
 
     if (response.ok) {
       // document.location.reload();
-      allLikeButtons[i].textContent ++
+      likes += 1 
+      allLikeButtons[i].disable = 'disabled'
     } else {
       alert('Failed to like post...');
     }

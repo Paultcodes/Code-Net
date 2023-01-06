@@ -2,17 +2,26 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 //Route for creating a new user
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
-      user_name: req.body.userName,
-      first_name: req.body.firstName,
-      last_name: req.body.lastName,
-      bio: req.body.bio,
-      pic: req.body.picName,
-      password: req.body.password,
-      github_url: req.body.github,
+      user_name: 'CodePaul',
+      first_name: 'Paul',
+      last_name: 'Taylor',
+      bio: 'Like to code',
+      pic: '/images/avatar1.png',
+      password: 'Baller12!',
+      github_url: 'https://github.com/Paultcodes/Code-Net',
     });
+
+
+    // user_name: req.body.userName,
+    //   first_name: req.body.firstName,
+    //   last_name: req.body.lastName,
+    //   bio: req.body.bio,
+    //   pic: req.body.picName,
+    //   password: req.body.password,
+    //   github_url: req.body.github,
 
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
@@ -42,7 +51,7 @@ router.post('/login', async (req, res) => {
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      req.status(400).json({ message: 'Incorrect username or password' });
+      res.status(400).json({ message: 'Incorrect username or password' });
       return;
     }
 
@@ -53,6 +62,7 @@ router.post('/login', async (req, res) => {
       res.status(200).json(dbUserData);
     });
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
