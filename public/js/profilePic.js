@@ -1,4 +1,4 @@
-const btn = document.querySelectorAll('button.avatar');
+const btn = document.querySelectorAll('.avatar');
 let selectedPic
 
 for (let i = 0; i < btn.length; i++) {
