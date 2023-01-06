@@ -1,0 +1,15 @@
+.avatar {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    transition: all .5s;
+}
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
