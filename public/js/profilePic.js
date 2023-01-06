@@ -1,9 +1,9 @@
-const btn = document.querySelectorAll('.button');
+const btn = document.querySelectorAll('button.avatar');
 let selectedPic
 
 for (let i = 0; i < btn.length; i++) {
   btn[i].addEventListener('click', function () {
-    selectedPic = btn[i].getAttribute('data-pic-name');
+    selectedPic = btn[i].getAttribute('data-avatar');
     changeOpacity(selectedPic);
     console.log(selectedPic)
   });
@@ -11,7 +11,7 @@ for (let i = 0; i < btn.length; i++) {
 
 function changeOpacity(b) {
   for (let i = 0; i < btn.length; i++) {
-    const element = btn[i].getAttribute('data-pic-name');
+    const element = btn[i].getAttribute('data-avatar');
     if (element !== b) {
       btn[i].style.opacity = '50%';
     } else {
