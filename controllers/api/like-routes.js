@@ -7,7 +7,7 @@ router.post('/like', async (req, res) => {
     const checkLikes = await Like.findOne({
       where: {
         //!User id needs to be req.session.id
-        user_id: req.body.userId,
+        user_id: req.session.user_id,
         post_id: req.body.postId,
       },
     });
@@ -19,7 +19,7 @@ router.post('/like', async (req, res) => {
     } else {
       await Like.create({
         //!user id needs to be req.session.id
-        user_id: req.body.userId,
+        user_id: req.session.user_id,
         post_id: req.body.postId,
       });
 

@@ -45,6 +45,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    header: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: '/images/header.jpg',
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -61,6 +66,7 @@ User.init(
     likes: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      defaultValue: 0,
     },
   },
   {
