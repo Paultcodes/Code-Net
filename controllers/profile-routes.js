@@ -7,6 +7,7 @@ const {
   Like,
   UserLanguages,
 } = require('../models');
+const { findAll } = require('../models/Post');
 
 //Route to get all posts and languages for user
 router.get('/:id', async (req, res) => {
@@ -15,39 +16,75 @@ router.get('/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ['user_name', 'level', 'likes', 'pic', 'first_name', 'last_name', 'bio', 'created_at'],
+      attributes: [
+        'user_name',
+        'level',
+        'likes',
+        'pic',
+        'first_name',
+        'last_name',
+        'bio',
+        'created_at',
+        'header',
+      ],
 
+      // include: [
+      //   {
+      //     model: Post,
+      //     attributes: ['id', 'text', 'likes', 'created_at'],
+      //     order: [['created_at', 'DESC']],
+      //     include: [
+      //       {
+      //         model: User,
+      //         attributes: ['user_name', 'pic', 'first_name', 'last_name'],
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     model: Language,
+      //     attributes: ['language_name'],
+      //   },
+      // ],
+    });
+
+    const findPosts = await Post.findAll({
+      where: {
+        user_id: req.params.id,
+      },
+      attributes: ['id', 'text', 'likes', 'user_id', 'is_code', 'created_at'],
+      order: [['created_at', 'DESC']],
       include: [
         {
-          model: Post,
-          attributes: ['id', 'text', 'likes', 'created_at'],
-          order: [['created_at', 'DESC']],
-          include: [
-            {
-              model: User,
-              attributes: ['user_name', 'pic'],
-            },
+          model: User,
+          attributes: [
+            'id',
+            'user_name',
+            'level',
+            'first_name',
+            'last_name',
+            'pic',
           ],
-        },
-        {
-          model: Language,
-          attributes: ['language_name'],
         },
       ],
     });
+
+    const proPosts = findPosts.map((post) => post.get({ plain: true }));
 
     let highLevel = true;
 
     const allData = findData.get({ plain: true });
     console.log(allData);
 
-    res.render('profile', { allData, highLevel });
+    res.render('profile', {
+      allData,
+      highLevel,
+      proPosts,
+      ses: req.session.user_id,
+    });
   } catch (err) {
     console.log(err);
   }
 });
-
-
 
 //!Test route for recommending random user to friend
 // router.get('/yes/ok', async (req, res) => {
