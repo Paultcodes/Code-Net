@@ -11,6 +11,13 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
+pre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
 .main-container {
   display: flex;
   flex-direction: row;
@@ -345,6 +352,10 @@ button {
     width: 300px;
   }
 
+  pre {
+    width: 220px;
+  }
+
   .middle-user-info {
     width: 400px;
   }
@@ -427,4 +438,52 @@ button {
 
 .single-post {
   border: 2px solid green;
+}
+
+.setting-pic {
+  display: flex;
+  justify-content: space-around;
+}
+
+.set-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.header-setting {
+  text-align: center;
+}
+
+.setting-header-pic {
+  height: 120px;
+  width: 400px;
+  
+}
+
+.setting-pic-button {
+  cursor: pointer;
+}
+
+
+
+.settings-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.setting-middle {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  gap: 2rem;
+  padding: 10px;
+  margin-top: 17%;
+  height: 500px;
+  background-color: rgba(22, 21, 21, 0.666);
+}
+
+.update-header-alert {
+  text-align: center;
 }

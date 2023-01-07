@@ -14,7 +14,7 @@
       </div>
       <div class="main-post-middle profile-container">
         <div class="top">
-          <img class="header-pic" src="/images/avatar1.png" alt="">
+          <img class="header-pic" src="{{userData.pic}}" alt="">
           <h4 class="username username-top">{{userData.first_name}} {{userData.last_name}}</h4>
 
         </div>
@@ -67,9 +67,9 @@
             </div>
             <div class="button-section">
               <button data-user-id="{{posts.user.id}}" data-post-id="{{posts.id}}" class="like-button post-button">
-                <i class="fa-solid fa-heart"></i>{{#if_cond posts.likes '===' 0}}<span class="post-total-likes"></span>{{else}}
+                <i class="fa-solid fa-heart"></i>
                 <span class="post-total-likes">{{posts.likes}}</span>
-                {{/if_cond}}  
+                 
                   
               </button>
               <a href="/api/posts/{{posts.id}}"><i class="fa-solid fa-comment"></i></a>
@@ -151,7 +151,7 @@
         </div>
       </div>
     </div>
-    <script src="../javascript.js"></script>
+    
 <script src='../js/createPost.js'></script>
 <script src='../js/prism.js'></script>
 <script src="/js/javascript.js"></script>

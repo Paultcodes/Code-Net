@@ -1,7 +1,7 @@
 <div class="main-container profile-container">
       <div class="nav-left-side">
         <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
-        <a href="/profile/1"><i class="fa-solid fa-user"></i></a>
+        <a href="/profile/{{sess}}"><i class="fa-solid fa-user"></i></a>
         <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
         <button id="modalBtn" class="button-m">
           <i class="fa-solid fa-star"></i>
@@ -11,7 +11,7 @@
       </div>
       <div class="main-post-middle profile-container">
         <div class="top">
-          <img class="header-pic" src="/images/avatar1.png" alt="">
+          <img class="header-pic" src="{{currentUser.pic}}" alt="">
           <h4 class="username username-top">{{currentUser.first_name}} {{currentUser.last_name}}</h4>
           
 

@@ -25,6 +25,7 @@ router.get('/:id', async (req, res) => {
         'last_name',
         'bio',
         'created_at',
+        'header',
       ],
 
       // include: [
@@ -74,7 +75,12 @@ router.get('/:id', async (req, res) => {
     const allData = findData.get({ plain: true });
     console.log(allData);
 
-    res.render('profile', { allData, highLevel, proPosts,  ses: req.session.user_id });
+    res.render('profile', {
+      allData,
+      highLevel,
+      proPosts,
+      ses: req.session.user_id,
+    });
   } catch (err) {
     console.log(err);
   }
