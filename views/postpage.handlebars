@@ -1,11 +1,8 @@
 <div class="main-container profile-container">
       <div class="nav-left-side">
         <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
-        <a href="/profile/{{userData.id}}"><i class="fa-solid fa-user"></i></a>
-        <button class="button-m logout-button">
-        <i class="fa-solid fa-right-from-bracket"></i>
-
-        </button>
+        <a href="/profile/{{sess}}"><i class="fa-solid fa-user"></i></a>
+        <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
         <button id="modalBtn" class="button-m">
           <i class="fa-solid fa-star"></i>
         </button>
@@ -14,51 +11,44 @@
       </div>
       <div class="main-post-middle profile-container">
         <div class="top">
-          <img class="header-pic" src="{{userData.pic}}" alt="">
-          <h4 class="username username-top">{{userData.first_name}} {{userData.last_name}}</h4>
+          <img class="header-pic" src="{{currentUser.pic}}" alt="">
+          <h4 class="username username-top">{{currentUser.first_name}} {{currentUser.last_name}}</h4>
+          
 
         </div>
         
         
         <div class="middle-user-info">
           <main class='main-section'>
-            <h2 class="on-mind">Whats on your mind?</h2>
             <div class='post-section'>
-              <button data-type="text" class='submit-post'><i class='fa-solid fa-pen'></i></button>
-              <textarea class='post-input' id='multiliner' name='multiliner'></textarea>
-              <button data-type="code" class='submit-post'>
-                <i class='fa-solid fa-code'></i>
-              </button>
+              <input class="comment-input" type="text" name="" id="">
+              <button data-post="{{postData.id}}" class="submit-comment">Submit</button>
+
             </div>
           </main>
-          
+          </div>
 
-          
 
-          
-
-          
-        </div>
         <div class="all-posts">
-          {{#each data as |posts|}}
-          <div class="post">
+
+          <div class="single-post post">
             <div class="text-post">
               <div class="pic">
-                <a href="profile/{{posts.user.id}}"><img class="post-image" src="{{posts.user.pic}}" alt="" /></a>
+                <img class="post-image" src="{{postData.user.pic}}" alt="" />
               </div>
               <div class="post-text">
                 <p class="post-user-name">
-                  {{posts.user.first_name}} {{user.last_name}}<span class="post-date"> · @{{user.user_name}}</span> <span class="post-date">{{format_date posts.created_at}}</span>
+                  {{postData.user.first_name}} {{postData.user.last_name}}<span class="post-date"> · @{{postData.user.user_name}}</span> <span class="post-date">{{format_date postData.created_at}}</span>
                 </p>
-                 {{#if posts.is_code}}
+                 {{#if postData.is_code}}
                 <pre>
                 <code class='language-javascript'>
-              {{posts.text}}
+              {{postData.text}}
                </code>
              </pre>
             {{else}}
                 <p>
-                  {{posts.text}}
+                  {{postData.text}}
                 </p>
               
                   
@@ -68,26 +58,67 @@
             <div class="button-section">
               <button data-user-id="{{posts.user.id}}" data-post-id="{{posts.id}}" class="like-button post-button">
                 <i class="fa-solid fa-heart"></i>
-                <span class="post-total-likes">{{posts.likes}}</span>
+                <span>{{posts.likes}}</span>
                  
                   
               </button>
-              <a href="/api/posts/{{posts.id}}"><i class="fa-solid fa-comment"></i></a>
-                
+              <button class="comment-button post-button">
+                <i class="fa-solid fa-comment"></i>
+              </button>
               
               
-              {{#if_cond posts.user.id '===' userData.id}}
               <button>
                 delete
               </button>
-              {{else}}
+              
                 
-              {{/if_cond}}
+            </div>
+          </div>
+          {{#each postData.comments as |comment|}}
+          <div class="post">
+            <div class="text-post">
+              <div class="pic">
+                <img class="post-image" src="{{comment.user.pic}}" alt="" />
+              </div>
+              <div class="post-text">
+                <p class="post-user-name">
+                  {{comment.user.first_name}} {{comment.user.last_name}}<span class="post-date"> · commented on</span><span class="post-date"> {{format_date comment.created_at}}</span>
+                </p>
+                 {{#if postData.is_code}}
+                <pre>
+                <code class='language-javascript'>
+              {{comment.text}}
+               </code>
+             </pre>
+            {{else}}
+                <p>
+                  {{comment.text}}
+                </p>
+              
+                  
+                {{/if}}
+              </div>
+            </div>
+            <div class="button-section">
+              <button data-user-id="{{posts.user.id}}" data-post-id="{{posts.id}}" class="like-button post-button">
+                <i class="fa-solid fa-heart"></i>
+                <span>{{posts.likes}}</span>
+                 
+                  
+              </button>
+              <button class="comment-button post-button">
+                <i class="fa-solid fa-comment"></i>
+              </button>
+              
+              
+              <button>
+                delete
+              </button>
+              
+                
             </div>
           </div>
           {{/each}}
-
-
     
 
 
@@ -151,11 +182,9 @@
         </div>
       </div>
     </div>
-    
+    <script src="../javascript.js"></script>
 <script src='../js/createPost.js'></script>
 <script src='../js/prism.js'></script>
 <script src="/js/javascript.js"></script>
 <script src="/js/modalJs.js"></script>
-<script src="/js/logout.js"></script>
-
-
+<script src="/js/comment.js"></script>

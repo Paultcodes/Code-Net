@@ -24,7 +24,7 @@
 .form {
     width: 400px;
     max-width: 400px;
-    margin: 1rem;
+    margin: 6rem auto;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -42,7 +42,6 @@
 .form__button {
     font: 500 1rem ;
 }
-
 
 .form > *:first-child {
     margin-top: 0;
