@@ -1,7 +1,8 @@
+//grabbing all the avatar class buttons
 const btn = document.querySelectorAll('.avatar');
 let selectedPic
 
-
+//function to loop through all the buttons after one is selected
 for (let i = 0; i < btn.length; i++) {
   btn[i].addEventListener('click', function (event) {
     event.preventDefault();
@@ -10,7 +11,7 @@ for (let i = 0; i < btn.length; i++) {
     console.log(selectedPic)
   });
 }
-
+//function to change the opacity of the buttons when one is selected
 function changeOpacity(b) {
   for (let i = 0; i < btn.length; i++) {
     const element = btn[i].getAttribute('data-avatar');
@@ -20,5 +21,17 @@ function changeOpacity(b) {
       btn[i].style.opacity = '100%';
     }
   }
-}
+};
 
+fetch('http://localhost:3001/signup/user?'), {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'user',
+  })
+}
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(error => console.log('ERROR'));
