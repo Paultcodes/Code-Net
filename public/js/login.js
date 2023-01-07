@@ -24,4 +24,4 @@ const submitLogin = document
   .querySelector('.submit-login')
   .addEventListener('click', loginFormHandler);
 
-console.log('hello');
+
