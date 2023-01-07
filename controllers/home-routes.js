@@ -12,7 +12,14 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['id', 'user_name', 'level', 'first_name', 'last_name', 'pic'],
+          attributes: [
+            'id',
+            'user_name',
+            'level',
+            'first_name',
+            'last_name',
+            'pic',
+          ],
         },
       ],
     });
@@ -21,14 +28,28 @@ router.get('/', async (req, res) => {
       where: {
         id: req.session.user_id,
       },
-      attributes: ['id', 'user_name', 'pic', 'level', 'likes', 'first_name', 'last_name'],
+      attributes: [
+        'id',
+        'user_name',
+        'pic',
+        'level',
+        'likes',
+        'first_name',
+        'last_name',
+      ],
     });
     const userData = getUser.get({ plain: true });
     const data = allData.map((post) => post.get({ plain: true }));
 
-    console.log(data);
-    console.log(req.session.user_id)
     res.render('homepage', { data, userData });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.get('/game', async (req, res) => {
+  try {
+    res.render('easteregg');
   } catch (err) {
     console.log(err);
   }
@@ -46,7 +67,6 @@ router.post('/create', async (req, res) => {
     res.status(500).json({ message: 'Failed to create post' });
   }
 });
-
 
 router.post('/create/modal', async (req, res) => {
   try {

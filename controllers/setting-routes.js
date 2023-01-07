@@ -3,7 +3,15 @@ const { User } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    res.render('settings', { sess: req.session.user_id });
+    const getUser = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      attributes: ['first_name', 'last_name', 'user_name', 'bio', 'github_url'],
+    });
+
+    const user = getUser.get({ plain: true });
+    res.render('settings', { sess: req.session.user_id, user });
   } catch (err) {
     console.log(err);
   }
@@ -42,6 +50,28 @@ router.put('/updateHeader', async (req, res) => {
     );
 
     res.status(200).json(updateHeader);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.put('/updateUser', async (req, res) => {
+  try {
+    const updateUserInfo = User.update(
+      {
+        user_name: req.body.username,
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        bio: req.body.bio,
+        github_url: req.body.github,
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    );
+    res.status(200).json(updateUserInfo);
   } catch (err) {
     console.log(err);
   }
