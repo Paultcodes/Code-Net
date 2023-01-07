@@ -1,7 +1,7 @@
 <div class="main-container profile-container">
       <div class="nav-left-side">
         <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
-        <a href="/profile/1"><i class="fa-solid fa-user"></i></a>
+        <a href="/profile/{{sess}}"><i class="fa-solid fa-user"></i></a>
         <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
         <button id="modalBtn" class="button-m">
           <i class="fa-solid fa-star"></i>
@@ -11,8 +11,9 @@
       </div>
       <div class="main-post-middle profile-container">
         <div class="top">
-          <img class="header-pic" src="/images/avatar1.png" alt="">
-          <h4 class="username username-top">{{userData.first_name}} {{userData.last_name}}</h4>
+          <img class="header-pic" src="{{currentUser.pic}}" alt="">
+          <h4 class="username username-top">{{currentUser.first_name}} {{currentUser.last_name}}</h4>
+          
 
         </div>
         
@@ -20,6 +21,8 @@
         <div class="middle-user-info">
           <main class='main-section'>
             <div class='post-section'>
+              <input class="comment-input" type="text" name="" id="">
+              <button data-post="{{postData.id}}" class="submit-comment">Submit</button>
 
             </div>
           </main>
@@ -28,14 +31,14 @@
 
         <div class="all-posts">
 
-          <div class="post">
+          <div class="single-post post">
             <div class="text-post">
               <div class="pic">
-                <img class="post-image" src="{{posts.user.pic}}" alt="" />
+                <img class="post-image" src="{{postData.user.pic}}" alt="" />
               </div>
               <div class="post-text">
                 <p class="post-user-name">
-                  Zane Nihcols<span class="post-date"> · @zanenichols</span> <span class="post-date">0/0/0</span>
+                  {{postData.user.first_name}} {{postData.user.last_name}}<span class="post-date"> · @{{postData.user.user_name}}</span> <span class="post-date">{{format_date postData.created_at}}</span>
                 </p>
                  {{#if postData.is_code}}
                 <pre>
@@ -75,11 +78,11 @@
           <div class="post">
             <div class="text-post">
               <div class="pic">
-                <img class="post-image" src="{{posts.user.pic}}" alt="" />
+                <img class="post-image" src="{{comment.user.pic}}" alt="" />
               </div>
               <div class="post-text">
                 <p class="post-user-name">
-                  {{comment.user.first_name}} {{comment.user.last_name}}<span class="post-date"> · @{{comment.user.user_name}}</span> <span class="post-date">{{format_date comment.created_at}}</span>
+                  {{comment.user.first_name}} {{comment.user.last_name}}<span class="post-date"> · commented on</span><span class="post-date"> {{format_date comment.created_at}}</span>
                 </p>
                  {{#if postData.is_code}}
                 <pre>
@@ -184,3 +187,4 @@
 <script src='../js/prism.js'></script>
 <script src="/js/javascript.js"></script>
 <script src="/js/modalJs.js"></script>
+<script src="/js/comment.js"></script>

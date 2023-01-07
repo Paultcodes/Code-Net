@@ -39,6 +39,7 @@ for (let i = 0; i < submitPost.length; i++) {
 
 const allLikeButtons = document.querySelectorAll('.like-button');
 
+
 for (let i = 0; i < allLikeButtons.length; i++) {
   allLikeButtons[i].addEventListener('click', async function (event) {
     event.preventDefault();
@@ -55,7 +56,6 @@ for (let i = 0; i < allLikeButtons.length; i++) {
 
     if (response.ok) {
       // document.location.reload();
-      allLikeButtons[i].textContent ++
     } else {
       alert('Failed to like post...');
     }
