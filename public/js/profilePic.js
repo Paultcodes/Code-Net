@@ -23,15 +23,37 @@ function changeOpacity(b) {
   }
 };
 
-fetch('http://localhost:3001/signup/user?'), {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    name: 'user',
-  })
-}
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(error => console.log('ERROR'));
+const signupFormHandler = async (event) => {
+  event.preventDefault();
+
+  const userName = document.querySelector('.userName').value.trim();
+  const password = document.querySelector('.password').value.trim();
+  const firstName = document.querySelector('.firstName').value.trim();
+  const lastName = document.querySelector('.lastName').value.trim();
+  const bio = document.querySelector('.bio').value.trim();
+  const github = document.querySelector('.github').value.trim();
+
+
+  console.log(userName);
+
+  if (userName && password && firstName && lastName && bio && github && selectedPic) {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({ password, bio, github, userName, firstName, lastName, selectedPic}),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      console.log("FAILED")
+    }
+  }
+};
+
+const submitSignupLogin = document
+  .querySelector('.form__button')
+  .addEventListener('click', signupFormHandler);
+
+console.log('hello');
+
