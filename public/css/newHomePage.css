@@ -16,10 +16,12 @@ body {
 }
 
 pre {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
+  width: 500px;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-style: inherit;
 }
 
 .main-container {
@@ -61,6 +63,10 @@ pre {
   align-items: center;
 
   flex: 2;
+}
+
+.class-set-icon {
+  color: rgb(167, 251, 102);
 }
 
 .home-button,
@@ -191,7 +197,7 @@ i {
 
 i:hover {
   color: rgb(171, 247, 85);
-  transform: scale(140%);
+  transform: scale(120%);
   cursor: pointer;
 }
 
@@ -274,10 +280,11 @@ button {
 .top-top {
   position: sticky;
 }
-.borderglowoptions{
+
+.borderglowoptions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 3rem;
   justify-content: center;
 }
 
@@ -500,6 +507,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .set-btn {
@@ -512,8 +520,6 @@ button {
 .update-header-alert {
   text-align: center;
 }
-
-
 
 button:hover {
   cursor: pointer;

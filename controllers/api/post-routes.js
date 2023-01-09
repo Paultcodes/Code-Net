@@ -2,7 +2,10 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const checkIfLogged = require('../../utils/checkLoggedIn');
 
-//Route for getting one post
+//Route for displaying a single post and its comments. 
+//Retrieves the current user's information and the post's information from the database, 
+//including the post creator's information and the comments on the post with their respective commenter's information. 
+//Renders the post page with the retrieved data.
 router.get('/:id', checkIfLogged, async (req, res) => {
   try {
     const getCurrentUser = await User.findOne({
@@ -67,18 +70,6 @@ router.get('/:id', checkIfLogged, async (req, res) => {
   }
 });
 
-router.delete('/delete/:id', async (req, res) => {
-  try {
-    const deletePost = await Post.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
 
-    res.status(200).json(deletePost);
-  } catch (err) {
-    console.log(err);
-  }
-});
 
 module.exports = router;

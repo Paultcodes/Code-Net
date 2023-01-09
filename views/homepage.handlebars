@@ -1,162 +1,156 @@
-<div class="main-container profile-container">
-      <div class="nav-left-side">
-        <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
-        <a href="/profile/{{userData.id}}"><i class="fa-solid fa-user"></i></a>
-        <button class="button-m logout-button">
-        <i class="fa-solid fa-right-from-bracket"></i>
-
-        </button>
-        <button id="modalBtn" class="button-m">
-          <i class="fa-solid fa-star"></i>
-        </button>
-        <a href="https://vscode.dev/"><i class="fa-solid fa-code"></i></a>
-    
-        <a id="postModalButton" class="write-button" href="#"><i class="fa-solid fa-pen"></i></a>
-      </div>
-      <div class="main-post-middle profile-container">
-        <div class="top">
-          <img class="header-pic" src="{{userData.pic}}" alt="">
-          <h4 class="username username-top">{{userData.first_name}} {{userData.last_name}}</h4>
-
+<div class='main-container profile-container'>
+  <div class='nav-left-side'>
+    <a href='/'><i class='fa-solid fa-house home-button'></i></a>
+    <a href='/profile/{{userData.id}}'><i class='fa-solid fa-user'></i></a>
+    <button class='button-m logout-button'>
+      <i class='fa-solid fa-right-from-bracket'></i>
+    </button>
+    <button id='modalBtn' class='button-m'>
+      <i class='fa-solid fa-star'></i>
+    </button>
+    <a target='_blank' href='https://vscode.dev/'><i
+        class='fa-solid fa-code'
+      ></i></a>
+    <a id='postModalButton' class='write-button' href='#'><i
+        class='fa-solid fa-pen'
+      ></i></a>
+  </div>
+  <div class='main-post-middle profile-container'>
+    <div class='top'>
+      <img class='header-pic' src='{{userData.pic}}' alt='' />
+      <h4 class='username username-top'>{{userData.first_name}}
+        {{userData.last_name}}</h4>
+    </div>
+    <div class='middle-user-info'>
+      <main class='main-section'>
+        <h2 class='on-mind'>Whats on your mind?</h2>
+        <div class='post-section'>
+          <button data-type='text' class='submit-post'><i
+              class='fa-solid fa-pen'
+            ></i></button>
+          <textarea
+            class='post-input'
+            id='multiliner'
+            name='multiliner'
+          ></textarea>
+          <button data-type='code' class='submit-post'>
+            <i class='fa-solid fa-code'></i>
+          </button>
         </div>
-        
-        
-        <div class="middle-user-info">
-          <main class='main-section'>
-            <h2 class="on-mind">Whats on your mind?</h2>
-            <div class='post-section'>
-              <button data-type="text" class='submit-post'><i class='fa-solid fa-pen'></i></button>
-              <textarea class='post-input' id='multiliner' name='multiliner'></textarea>
-              <button data-type="code" class='submit-post'>
-                <i class='fa-solid fa-code'></i>
-              </button>
+      </main>
+      <div class='refresh-section'><button class='refresh'><i
+            class='fa-solid fa-arrows-rotate refresh'
+          ></i></button></div>
+    </div>
+    <div class='all-posts'>
+      {{#each data as |posts|}}
+        <div class='post'>
+          <div class='text-post'>
+            <div class='pic'>
+              <a href='profile/{{posts.user.id}}'><img
+                  class='post-image'
+                  src='{{posts.user.pic}}'
+                  alt=''
+                /></a>
             </div>
-          </main>
-          <div class="refresh-section"><button class="refresh"><i class="fa-solid fa-arrows-rotate refresh"></i></button></div>
-          
-
-          
-
-          
-
-          
-        </div>
-        <div class="all-posts">
-          {{#each data as |posts|}}
-          <div class="post">
-            <div class="text-post">
-              <div class="pic">
-                <a href="profile/{{posts.user.id}}"><img class="post-image" src="{{posts.user.pic}}" alt="" /></a>
-              </div>
-              <div class="post-text">
-                <p class="post-user-name">
-                  {{posts.user.first_name}} {{user.last_name}}<span class="post-date"> · @{{user.user_name}}</span> <span class="post-date">{{format_date posts.created_at}}</span>
-                </p>
-                 {{#if posts.is_code}}
+            <div class='post-text'>
+              <p class='post-user-name'>
+                {{posts.user.first_name}}
+                {{user.last_name}}<span class='post-date'>
+                  · @{{user.user_name}}</span>
+                <span class='post-date'>{{format_date posts.created_at}}</span>
+              </p>
+              {{#if posts.is_code}}
                 <pre>
-                <code class='language-javascript'>
-              {{posts.text}}
-               </code>
-             </pre>
-            {{else}}
+                  <code class='language-javascript change-font'>
+                    {{posts.text}}
+                  </code>
+                </pre>
+              {{else}}
                 <p>
                   {{posts.text}}
                 </p>
-              
-                  
-                {{/if}}
-              </div>
+              {{/if}}
             </div>
-            <div class="button-section">
-              <button data-user-id="{{posts.user.id}}" data-post-id="{{posts.id}}" class="like-button post-button">
-                <i class="fa-solid fa-heart"></i>
-                <span class="post-total-likes">{{posts.likes}}</span>
-                 
-                  
-              </button>
-              <a href="/api/posts/{{posts.id}}"><i class="fa-solid fa-comment"></i></a>
-                
-              
-              
-              {{#if_cond posts.user.id '===' userData.id}}
+          </div>
+          <div class='button-section'>
+            <button
+              data-user-id='{{posts.user.id}}'
+              data-post-id='{{posts.id}}'
+              class='like-button post-button'
+            >
+              <i class='fa-solid fa-heart'></i>
+              <span class='post-total-likes'>{{posts.likes}}</span>
+            </button>
+            <a href='/api/posts/{{posts.id}}'><i
+                class='fa-solid fa-comment'
+              ></i></a>
+            {{#if_cond posts.user.id '===' userData.id}}
               <button>
                 delete
               </button>
-              {{else}}
-                
-              {{/if_cond}}
-            </div>
+            {{else}}
+            {{/if_cond}}
           </div>
-          {{/each}}
-
-
-    
-
-
-
-
         </div>
-      </div>
-      <div id="simpleModal" class="modal">
-        <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <div class="modal-stuff">
-            <div class="left-modal mod">
-              <h1>{{userData.level}}</h1>
-              <h3>Level</h3>
-            </div>
-            <div class="middle-modal mod">
-              <h1>{{userData.likes}}</h1>
-              <h3>Likes</h3>
-            </div>
-            <div class="left-modal mod">
-              <h1><a href=""><i class="fa-brands fa-github"></i></a></h1>
-              <h3>GitHub</h3>
-            </div>
-
-          </div>
-          
+      {{/each}}
+    </div>
+  </div>
+  <div id='simpleModal' class='modal'>
+    <div class='modal-content'>
+      <span class='close-button'>&times;</span>
+      <div class='modal-stuff'>
+        <div class='left-modal mod'>
+          <h1>{{userData.level}}</h1>
+          <h3>Level</h3>
         </div>
-      </div>
-      <div id="postModal" class="modal">
-        <div class="modal-content">
-          
-          <span class="close-button-post">&times;</span>
-          <main class='main-section'>
-            <h2 class="on-mind">Whats on your mind?</h2>
-            <div class='post-section'>
-              <button id="modal-submit-button" data-type="text" class='submit-post'><i class='fa-solid fa-pen'></i></button>
-              <textarea id="modal-textarea" class='post-input' id='multiliner' name='multiliner'></textarea>
-              <button id="modal-submit-button" data-type="code" class='submit-post'>
-                <i class='fa-solid fa-code'></i>
-              </button>
-            </div>
-          </main>
-
-          </div>
-          
+        <div class='middle-modal mod'>
+          <h1>{{userData.likes}}</h1>
+          <h3>Likes</h3>
         </div>
-
-      <div class="right-profile-side profile-container">
-        <h2 class="whats-happening">Whats Happening</h2>
-        <div class="news">
-
-          
-        </div>
-        
-
-
-        </div>
-    
+        <div class='left-modal mod'>
+          <h1><a target='_blank' href='{{userData.github_url}}'><i
+                class='fa-brands fa-github'
+              ></i></a></h1>
+          <h3>GitHub</h3>
         </div>
       </div>
     </div>
-    
+  </div>
+  <div id='postModal' class='modal'>
+    <div class='modal-content'>
+      <span class='close-button-post'>&times;</span>
+      <main class='main-section'>
+        <h2 class='on-mind'>Whats on your mind?</h2>
+        <div class='post-section'>
+          <button
+            id='modal-submit-button'
+            data-type='text'
+            class='submit-post'
+          ><i class='fa-solid fa-pen'></i></button>
+          <textarea
+            id='modal-textarea'
+            class='post-input'
+            id='multiliner'
+            name='multiliner'
+          ></textarea>
+          <button id='modal-submit-button' data-type='code' class='submit-post'>
+            <i class='fa-solid fa-code'></i>
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class='right-profile-side profile-container'>
+    <h2 class='whats-happening'>Whats Happening</h2>
+    <div class='news'>
+    </div>
+  </div>
+</div>
+
 <script src='../js/createPost.js'></script>
 <script src='../js/prism.js'></script>
-<script src="/js/javascript.js"></script>
-<script src="/js/modalJs.js"></script>
-<script src="/js/logout.js"></script>
-<script src="/js/refresh.js"></script>
-
-
+<script src='/js/javascript.js'></script>
+<script src='/js/modalJs.js'></script>
+<script src='/js/logout.js'></script>
+<script src='/js/refresh.js'></script>
