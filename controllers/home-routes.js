@@ -8,6 +8,7 @@ const checkIfLogged = require('../utils/checkLoggedIn');
 //Route to get all posts
 
 router.get('/', checkIfLogged, async (req, res) => {
+  let highLevel;
   try {
     const allData = await Post.findAll({
       attributes: ['id', 'text', 'likes', 'user_id', 'is_code', 'created_at'],
@@ -42,14 +43,20 @@ router.get('/', checkIfLogged, async (req, res) => {
       ],
     });
 
-    
     const userData = getUser.get({ plain: true });
     const data = allData.map((post) => post.get({ plain: true }));
+
+    if (userData.level >= 2) {
+      highLevel = true;
+    } else if (userData.level >= 3) {
+      let secondLevel = true;
+    }
 
     res.render('homepage', {
       data,
       userData,
       loggedIn: req.session.loggedIn,
+      highLevel,
     });
   } catch (err) {
     console.log(err);

@@ -2,17 +2,52 @@ const router = require('express').Router();
 const { User } = require('../models');
 const checkIfLogged = require('../utils/checkLoggedIn');
 
-router.get('/', checkIfLogged,  async (req, res) => {
+router.get('/', checkIfLogged, async (req, res) => {
+  let isHighLevel1;
+  let isHighLevel2;
+  let isHighLevel3;
   try {
     const getUser = await User.findOne({
       where: {
         id: req.session.user_id,
       },
-      attributes: ['first_name', 'last_name', 'user_name', 'bio', 'github_url'],
+      attributes: [
+        'first_name',
+        'last_name',
+        'user_name',
+        'bio',
+        'github_url',
+        'level',
+      ],
     });
 
     const user = getUser.get({ plain: true });
-    res.render('settings', { sess: req.session.user_id, user });
+    if (user.level >= 3) {
+      isHighLevel1 = true;
+    } else {
+      isHighLevel1 = false;
+    }
+
+    if (user.level >= 4) {
+      isHighLevel2 = true;
+    } else {
+      isHighLevel2 = false;
+    }
+
+    if (user.level >= 5) {
+      isHighLevel3 = true;
+    } else {
+      isHighLevel3 = false;
+    }
+
+    if (user)
+      res.render('settings', {
+        sess: req.session.user_id,
+        user,
+        isHighLevel1,
+        isHighLevel2,
+        isHighLevel3,
+      });
   } catch (err) {
     console.log(err);
   }
