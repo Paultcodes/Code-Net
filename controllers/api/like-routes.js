@@ -1,7 +1,11 @@
 const router = require('express').Router();
 const { Like, Post, User } = require('../../models');
 
-//Route for liking a post
+//Route for handling a user liking a post. 
+//If the post has already been liked by the current user, 
+//return a message indicating this. Otherwise, create a like in the database, 
+//increment the number of likes on the post, and, if the post's creator has not liked their own post, 
+//increment their like count and potentially their level.
 router.post('/like', async (req, res) => {
   try {
     const checkLikes = await Like.findOne({
@@ -23,18 +27,6 @@ router.post('/like', async (req, res) => {
         post_id: req.body.postId,
       });
 
-      const userData = await User.findOne({
-        where: {
-          id: req.body.userId,
-        },
-      });
-
-      await userData.increment('likes');
-
-      if (userData.likes >= 3) {
-        userData.increment('level');
-      }
-
       const postData = await Post.findOne({
         where: {
           id: req.body.postId,
@@ -42,6 +34,23 @@ router.post('/like', async (req, res) => {
       });
 
       await postData.increment('likes');
+
+      if (req.body.userId === req.session.user_id) {
+        return;
+      } else {
+        const userData = await User.findOne({
+          where: {
+            id: req.body.userId,
+          },
+        });
+
+        await userData.increment('likes');
+
+        if (userData.likes >= 3) {
+          userData.increment('level');
+        }
+      }
+
       res.status(200).json(postData);
     }
   } catch (err) {

@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-//Route for creating a new user
+
+//Creates a new user using the provided form data and sets the user's session information. 
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -26,7 +27,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-//Route for logging in
+//Route for handling a user logging in. 
+//Finds the user with the provided username in the database and checks if the provided password is valid for that user. 
+//If the username and password are valid. 
+//If the username or password is invalid, sends a message indicating this.
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
