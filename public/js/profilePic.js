@@ -1,6 +1,6 @@
 //grabbing all the avatar class buttons
 const btn = document.querySelectorAll('.avatar');
-let selectedPic
+let selectedPic;
 
 //function to loop through all the buttons after one is selected
 for (let i = 0; i < btn.length; i++) {
@@ -8,7 +8,7 @@ for (let i = 0; i < btn.length; i++) {
     event.preventDefault();
     selectedPic = btn[i].getAttribute('data-avatar');
     changeOpacity(selectedPic);
-    console.log(selectedPic)
+    console.log(selectedPic);
   });
 }
 //function to change the opacity of the buttons when one is selected
@@ -21,7 +21,7 @@ function changeOpacity(b) {
       btn[i].style.opacity = '100%';
     }
   }
-};
+}
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -33,21 +33,41 @@ const signupFormHandler = async (event) => {
   const bio = document.querySelector('.bio').value.trim();
   const github = document.querySelector('.github').value.trim();
 
-
   console.log(userName);
 
-  if (userName && password && firstName && lastName && bio && github && selectedPic) {
+  if (
+    userName &&
+    password &&
+    firstName &&
+    lastName &&
+    bio &&
+    github &&
+    selectedPic
+  ) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ password, bio, github, userName, firstName, lastName, selectedPic}),
+      body: JSON.stringify({
+        password,
+        bio,
+        github,
+        userName,
+        firstName,
+        lastName,
+        selectedPic,
+      }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
       document.location.replace('/');
     } else {
-      console.log("FAILED")
+      document.querySelector('.signup-warning').textContent =
+        'Failed to signup';
+      console.log('FAILED');
     }
+  } else {
+    document.querySelector('.signup-warning').textContent =
+      'Please fill out all fields';
   }
 };
 
@@ -56,4 +76,3 @@ const submitSignupLogin = document
   .addEventListener('click', signupFormHandler);
 
 console.log('hello');
-

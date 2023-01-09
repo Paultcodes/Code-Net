@@ -5,7 +5,7 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
-    user_name: req.body.userName,
+      user_name: req.body.userName,
       first_name: req.body.firstName,
       last_name: req.body.lastName,
       bio: req.body.bio,
@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       (req.session.user_name = dbUserData.user_name),
+        (req.session.pic = dbUserData.pic),
         (req.session.loggedIn = true);
       res.status(200).json(dbUserData);
     });
@@ -49,11 +50,12 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       (req.session.user_name = dbUserData.user_name),
+        (req.session.pic = dbUserData.pic),
         (req.session.loggedIn = true);
       res.status(200).json(dbUserData);
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(400).json(err);
   }
 });

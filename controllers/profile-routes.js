@@ -7,10 +7,10 @@ const {
   Like,
   UserLanguages,
 } = require('../models');
-const { findAll } = require('../models/Post');
+const checkIfLogged = require('../utils/checkLoggedIn');
 
 //Route to get all posts and languages for user
-router.get('/:id', async (req, res) => {
+router.get('/:id', checkIfLogged, async (req, res) => {
   try {
     const findData = await User.findOne({
       where: {

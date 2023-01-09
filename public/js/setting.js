@@ -3,6 +3,34 @@ const headerBtn = document.querySelectorAll('.set-header');
 let picSet;
 let headerSet;
 
+const updateUserInfo = async (event) => {
+  event.preventDefault();
+  const firstName = document.getElementById('first').value.trim();
+  const lastName = document.getElementById('last').value.trim();
+  const username = document.getElementById('setting-username').value.trim();
+  const bio = document.getElementById('setting-bio').value.trim();
+  const github = document.getElementById('setting-github').value.trim();
+
+  console.log(firstName);
+
+  if (firstName && lastName && username && bio && github) {
+    const response = await fetch('/settings/updateUser', {
+      method: 'PUT',
+      body: JSON.stringify({ firstName, lastName, username, bio, github }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.querySelector('.update-info-alert').textContent = 'Updated';
+    } else {
+      alert('failed');
+    }
+  } else {
+    document.querySelector('.update-info-alert').textContent =
+      'All Fields Are Required';
+  }
+};
+
 for (let i = 0; i < btnSet.length; i++) {
   btnSet[i].addEventListener('click', function () {
     picSet = btnSet[i].getAttribute('data-avatar');
@@ -72,8 +100,11 @@ const updateHeaderHandler = async () => {
   }
 };
 
+const updateUserButton = document.querySelector('.update-user-button');
 const btnn = document.querySelector('.setting-pic-button');
 const headerButtonSubmit = document.querySelector('.submit-header');
+
+updateUserButton.addEventListener('click', updateUserInfo);
 
 headerButtonSubmit.addEventListener('click', updateHeaderHandler);
 btnn.addEventListener('click', updateProfilePic);

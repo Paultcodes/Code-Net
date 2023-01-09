@@ -1,17 +1,18 @@
 <div class='box'>
- <div class="form">
-  <h1 class="form__title">Login</h1>
-  <input class="username-input" type="text">
-  <input class="password-input" type="password">
-  <button class="submit-login">Submit</button>
+  <div class='form'>
+    <h1 class='form__title'>Login</h1>
+    <input class='username-input form__input username-input' type='text' />
+    <input class='password-input form__input username-input' type='password' />
+    <h3 class="warning-text"></h3>
+    <button class='submit-login'>Submit</button>
 
- </div>
+    <a href="/signup/user">Create an account</a>
+
+  </div>
 </div>
-<script src="/js/login.js"></script>
+<script src='/js/login.js'></script>
 
-
-
-  {{!-- <form class='form' id='login'>
+{{! <form class='form' id='login'>
     <h1 class='form__title'>Login</h1>
     <div class='form__message form__message--error'></div>
     <div class='form__input-group'>
@@ -29,4 +30,4 @@
     <p class='form__text'>
       <a class='form__link' href='./' id='linkCreateAccount'>Create account</a>
     </p>
-  </form> --}}
+  </form> }}
