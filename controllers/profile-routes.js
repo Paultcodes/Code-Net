@@ -9,7 +9,8 @@ const {
 } = require('../models');
 const checkIfLogged = require('../utils/checkLoggedIn');
 
-//Route to get all posts and languages for user
+//Route for displaying a user's profile page. Retrieves the specified user's information and their posts from the database and renders the profile page with the retrieved data. 
+//Passes the current user's session information to the page for reference.
 router.get('/:id', checkIfLogged, async (req, res) => {
   try {
     const findData = await User.findOne({
@@ -23,28 +24,13 @@ router.get('/:id', checkIfLogged, async (req, res) => {
         'pic',
         'first_name',
         'last_name',
+        'github_url',
         'bio',
         'created_at',
         'header',
+        'border_glow'
       ],
 
-      // include: [
-      //   {
-      //     model: Post,
-      //     attributes: ['id', 'text', 'likes', 'created_at'],
-      //     order: [['created_at', 'DESC']],
-      //     include: [
-      //       {
-      //         model: User,
-      //         attributes: ['user_name', 'pic', 'first_name', 'last_name'],
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     model: Language,
-      //     attributes: ['language_name'],
-      //   },
-      // ],
     });
 
     const findPosts = await Post.findAll({
@@ -70,14 +56,12 @@ router.get('/:id', checkIfLogged, async (req, res) => {
 
     const proPosts = findPosts.map((post) => post.get({ plain: true }));
 
-    let highLevel = true;
 
     const allData = findData.get({ plain: true });
     console.log(allData);
 
     res.render('profile', {
       allData,
-      highLevel,
       proPosts,
       ses: req.session.user_id,
     });
@@ -86,25 +70,5 @@ router.get('/:id', checkIfLogged, async (req, res) => {
   }
 });
 
-//!Test route for recommending random user to friend
-// router.get('/yes/ok', async (req, res) => {
-//   try {
-//     const getAllUser = await User.findAll({
-//       attributes: ['user_name', 'pic'],
-//     });
-
-//     const parsed = getAllUser.map((user) => user.get({ plain: true }));
-//     const getUser = await User.findOne({
-//       where: {
-//         id: Math.floor(Math.random() * parsed.length + 1),
-//       },
-//     });
-//     const parseUser = getUser.get({ plain: true });
-//     console.log(parseUser)
-//     res.status(200).json(getAllUser);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
 
 module.exports = router;

@@ -1,187 +1,149 @@
-<div class="main-container profile-container">
-      <div class="nav-left-side">
-        <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
-        <a href="/profile/{{sess}}"><i class="fa-solid fa-user"></i></a>
-        <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
-        <button id="modalBtn" class="button-m">
-          <i class="fa-solid fa-star"></i>
-        </button>
-        <a href="https://vscode.dev/"><i class="fa-solid fa-code"></i></a>
-    
-        <a id="postModalButton" class="write-button" href="#"><i class="fa-solid fa-pen"></i></a>
-      </div>
-      <div class="main-post-middle profile-container">
-        <div class="top">
-          <img class="header-pic" src="{{currentUser.pic}}" alt="">
-          <h4 class="username username-top">{{currentUser.first_name}} {{currentUser.last_name}}</h4>
-          
+<div class='main-container profile-container'>
+  <div class='nav-left-side'>
+    <a href='/'><i class='fa-solid fa-house home-button'></i></a>
+    <a href='/profile/{{sess}}'><i class='fa-solid fa-user'></i></a>
+    <a href='#'><i class='fa-solid fa-right-from-bracket'></i></a>
+    <button id='modalBtn' class='button-m'>
+      <i class='fa-solid fa-star'></i>
+    </button>
+    <a href='https://vscode.dev/'><i class='fa-solid fa-code'></i></a>
 
+    <a id='postModalButton' class='write-button' href='#'><i
+        class='fa-solid fa-pen'
+      ></i></a>
+  </div>
+  <div class='main-post-middle profile-container'>
+    <div class='top'>
+      <img class='header-pic' src='{{currentUser.pic}}' alt='' />
+      <h4 class='username username-top'>{{currentUser.first_name}}
+        {{currentUser.last_name}}</h4>
+    </div>
+
+    <div class='middle-user-info'>
+      <main class='main-section'>
+        <div class='post-section'>
+          <textarea
+            name=''
+            class='comment-input'
+            id=''
+            cols='30'
+            rows='10'
+          ></textarea>
+          <button
+            data-post='{{postData.id}}'
+            class='submit-comment'
+          >Submit</button>
         </div>
-        
-        
-        <div class="middle-user-info">
-          <main class='main-section'>
-            <div class='post-section'>
-              <textarea name="" class="comment-input" id="" cols="30" rows="10"></textarea>
-              <button data-post="{{postData.id}}" class="submit-comment">Submit</button>
+      </main>
+    </div>
 
-            </div>
-          </main>
+    <div class='all-posts'>
+      <div class='single-post post'>
+        <div class='text-post'>
+          <div class='pic'>
+            <img class='post-image' src='{{postData.user.pic}}' alt='' />
           </div>
-
-
-        <div class="all-posts">
-
-          <div class="single-post post">
-            <div class="text-post">
-              <div class="pic">
-                <img class="post-image" src="{{postData.user.pic}}" alt="" />
-              </div>
-              <div class="post-text">
-                <p class="post-user-name">
-                  {{postData.user.first_name}} {{postData.user.last_name}}<span class="post-date"> · @{{postData.user.user_name}}</span> <span class="post-date">{{format_date postData.created_at}}</span>
-                </p>
-                 {{#if postData.is_code}}
-                <pre>
+          <div class='post-text'>
+            <p class='post-user-name'>
+              {{postData.user.first_name}}
+              {{postData.user.last_name}}<span class='post-date'>
+                · @{{postData.user.user_name}}</span>
+              <span class='post-date'>{{format_date postData.created_at}}</span>
+            </p>
+            {{#if postData.is_code}}
+              <pre>
                 <code class='language-javascript'>
-              {{postData.text}}
-               </code>
-             </pre>
-            {{else}}
-                <p>
                   {{postData.text}}
-                </p>
-              
-                  
-                {{/if}}
-              </div>
-            </div>
-            <div class="button-section">
-              <button data-user-id="{{posts.user.id}}" data-post-id="{{posts.id}}" class="like-button post-button">
-                <i class="fa-solid fa-heart"></i>
-                <span>{{posts.likes}}</span>
-                 
-                  
-              </button>
-              <button class="comment-button post-button">
-                <i class="fa-solid fa-comment"></i>
-              </button>
-              
-              
-          
-              
-                
-            </div>
-          </div>
-          {{#each postData.comments as |comment|}}
-          <div class="post">
-            <div class="text-post">
-              <div class="pic">
-                <img class="post-image" src="{{comment.user.pic}}" alt="" />
-              </div>
-              <div class="post-text">
-                <p class="post-user-name">
-                  {{comment.user.first_name}} {{comment.user.last_name}}<span class="post-date"> · commented on</span><span class="post-date"> {{format_date comment.created_at}}</span>
-                </p>
-                 {{#if postData.is_code}}
-                <pre>
-                <code class='language-javascript'>
-              {{comment.text}}
-               </code>
-             </pre>
+                </code>
+              </pre>
             {{else}}
-                <p>
-                  {{comment.text}}
-                </p>
-              
-                  
-                {{/if}}
-              </div>
-            </div>
-            <div class="button-section">
-              <button data-user-id="{{posts.user.id}}" data-post-id="{{posts.id}}" class="like-button post-button">
-                <i class="fa-solid fa-heart"></i>
-                <span>{{posts.likes}}</span>
-                 
-                  
-              </button>
-              <button class="comment-button post-button">
-                <i class="fa-solid fa-comment"></i>
-              </button>
-              
-              
-              
-              
-                
-            </div>
+              <p>
+                {{postData.text}}
+              </p>
+            {{/if}}
           </div>
-          {{/each}}
-    
-
-
-
-
         </div>
       </div>
-      <div id="simpleModal" class="modal">
-        <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <div class="modal-stuff">
-            <div class="left-modal mod">
-              <h1>{{userData.level}}</h1>
-              <h3>Level</h3>
+      {{#each postData.comments as |comment|}}
+        <div class='post'>
+          <div class='text-post'>
+            <div class='pic'>
+              <img class='post-image' src='{{comment.user.pic}}' alt='' />
             </div>
-            <div class="middle-modal mod">
-              <h1>{{userData.likes}}</h1>
-              <h3>Likes</h3>
+            <div class='post-text'>
+              <p class='post-user-name'>
+                {{comment.user.first_name}}
+                {{comment.user.last_name}}<span class='post-date'>
+                  · commented on</span><span class='post-date'>
+                  {{format_date comment.created_at}}</span>
+              </p>
+              <p>
+                {{comment.text}}
+              </p>
             </div>
-            <div class="right-modal">
-              <ul>
-                <li>JS</li>
-                <li>Python</li>
-                <li>C</li>
-              </ul>
-            </div>
-
           </div>
-          
-        </div>
-      </div>
-      <div id="postModal" class="modal">
-        <div class="modal-content">
-          
-          <span class="close-button-post">&times;</span>
-          <main class='main-section'>
-            <h2 class="on-mind">Whats on your mind?</h2>
-            <div class='post-section'>
-              <button id="modal-submit-button" data-type="text" class='submit-post'><i class='fa-solid fa-pen'></i></button>
-              <textarea id="modal-textarea" class='post-input' id='multiliner' name='multiliner'></textarea>
-              <button id="modal-submit-button" data-type="code" class='submit-post'>
-                <i class='fa-solid fa-code'></i>
-              </button>
-            </div>
-          </main>
-
+          <div class='button-section'>
           </div>
-          
         </div>
-
-      <div class="right-profile-side profile-container">
-        <h2 class="whats-happening">Whats Happening</h2>
-        <div class="news">
-
-          
+      {{/each}}
+    </div>
+  </div>
+  <div id='simpleModal' class='modal'>
+    <div class='modal-content'>
+      <span class='close-button'>&times;</span>
+      <div class='modal-stuff'>
+        <div class='left-modal mod'>
+          <h1>{{userData.level}}</h1>
+          <h3>Level</h3>
         </div>
-
-
+        <div class='middle-modal mod'>
+          <h1>{{userData.likes}}</h1>
+          <h3>Likes</h3>
         </div>
-    
+        <div class='right-modal'>
+          <ul>
+            <li>JS</li>
+            <li>Python</li>
+            <li>C</li>
+          </ul>
         </div>
       </div>
     </div>
-    <script src="../javascript.js"></script>
+  </div>
+  <div id='postModal' class='modal'>
+    <div class='modal-content'>
+      <span class='close-button-post'>&times;</span>
+      <main class='main-section'>
+        <h2 class='on-mind'>Whats on your mind?</h2>
+        <div class='post-section'>
+          <button
+            id='modal-submit-button'
+            data-type='text'
+            class='submit-post'
+          ><i class='fa-solid fa-pen'></i></button>
+          <textarea
+            id='modal-textarea'
+            class='post-input'
+            id='multiliner'
+            name='multiliner'
+          ></textarea>
+          <button id='modal-submit-button' data-type='code' class='submit-post'>
+            <i class='fa-solid fa-code'></i>
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class='right-profile-side profile-container'>
+    <h2 class='whats-happening'>Whats Happening</h2>
+    <div class='news'>
+    </div>
+  </div>
+</div>
+
+<script src='../javascript.js'></script>
 <script src='../js/createPost.js'></script>
-<script src='../js/prism.js'></script>
-<script src="/js/javascript.js"></script>
-<script src="/js/modalJs.js"></script>
-<script src="/js/comment.js"></script>
+<script src='/js/prism.js'></script>
+<script src='/js/javascript.js'></script>
+<script src='/js/modalJs.js'></script>
+<script src='/js/comment.js'></script>

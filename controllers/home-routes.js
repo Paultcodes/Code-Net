@@ -4,11 +4,8 @@ const { Session, Store } = require('express-session');
 const { Post, User, Language, Comment, sess } = require('../models');
 const checkIfLogged = require('../utils/checkLoggedIn');
 
-//Route to get all posts
-//Route to get all posts
-
+//Route for displaying the home page. Retrieves all posts and the current user's information from the database and renders the home page with the retrieved data.
 router.get('/', checkIfLogged, async (req, res) => {
-  let highLevel;
   try {
     const allData = await Post.findAll({
       attributes: ['id', 'text', 'likes', 'user_id', 'is_code', 'created_at'],
@@ -37,6 +34,7 @@ router.get('/', checkIfLogged, async (req, res) => {
         'user_name',
         'pic',
         'level',
+        'github_url',
         'likes',
         'first_name',
         'last_name',
@@ -46,17 +44,11 @@ router.get('/', checkIfLogged, async (req, res) => {
     const userData = getUser.get({ plain: true });
     const data = allData.map((post) => post.get({ plain: true }));
 
-    if (userData.level >= 2) {
-      highLevel = true;
-    } else if (userData.level >= 3) {
-      let secondLevel = true;
-    }
 
     res.render('homepage', {
       data,
       userData,
       loggedIn: req.session.loggedIn,
-      highLevel,
     });
   } catch (err) {
     console.log(err);
@@ -71,6 +63,8 @@ router.get('/game', async (req, res) => {
   }
 });
 
+
+//Route for creating a post
 router.post('/create', async (req, res) => {
   try {
     const createPost = await Post.create({
@@ -84,6 +78,7 @@ router.post('/create', async (req, res) => {
   }
 });
 
+//Route for receiving a post from the modal
 router.post('/create/modal', async (req, res) => {
   try {
     const createPost = await Post.create({
@@ -97,34 +92,5 @@ router.post('/create/modal', async (req, res) => {
   }
 });
 
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const singlePost = await Post.findOne({
-//       where: {
-//         id: req.params.id,
-//       },
-//       attributes: ['text', 'likes', 'is_code', 'user_id'],
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['user_name'],
-//         },
-//         {
-//           model: Comment,
-//           attributes: ['text', 'post_id', 'user_id', 'created_at'],
-//           include: {
-//             model: User,
-//             attributes: ['user_name'],
-//           },
-//         },
-//       ],
-//     });
-
-//     const post = singlePost.get({ plain: true });
-//     res.render('singlePost', { post });
-//   } catch (err) {
-//     res.status(500).json({ message: 'Unable to find this post' });
-//   }
-// });
 
 module.exports = router;

@@ -1,129 +1,203 @@
-<div class="main-container profile-container">
-      <div class="nav-left-side">
-        <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
-        <a href="/profile/{{sess}}"><i class="fa-solid fa-user"></i></a>
-         <button class="button-m logout-button">
-        <i class="fa-solid fa-right-from-bracket"></i>
+<div class='main-container profile-container'>
+  <div class='nav-left-side'>
+    <a href='/'><i class='fa-solid fa-house'></i></a>
+    <a href='/profile/{{sess}}'><i class='fa-solid fa-user'></i></a>
+    <button class='button-m logout-button'>
+      <i class='fa-solid fa-right-from-bracket'></i>
 
-        </button>
-        <a href=""><i class="fa-solid fa-gear"></i></a>
-        
-    
-        
+    </button>
+    <a href=''><i class='fa-solid fa-gear class-set-icon'></i></a>
+
+  </div>
+  <div class='main-post-middle profile-container'>
+    <div class='settings-top'>
+      <h1 class='header-setting'>Change Profile Picture</h1>
+      <div class='setting-pic'>
+        <button data-avatar='/images/avatar2.png' class='avatar'><img
+            class='set-pic'
+            src='/images/avatar2.png'
+            alt=''
+          /></button>
+        <button data-avatar='/images/avatar3.png' class='avatar'><img
+            class='set-pic'
+            src='/images/avatar3.png'
+            alt=''
+          /></button>
+        <button data-avatar='/images/avatar4.png' class='avatar'><img
+            class='set-pic'
+            src='/images/avatar4.png'
+            alt=''
+          /></button>
+        <button data-avatar='/images/avatar5.png' class='avatar'><img
+            class='set-pic'
+            src='/images/avatar5.png'
+            alt=''
+          /></button>
       </div>
-      <div class="main-post-middle profile-container">
-        <div class="settings-top">
-         <h1 class="header-setting">Change Profile Picture</h1>
-         <div class="setting-pic">
-            <button data-avatar="/images/avatar2.png" class="avatar" ><img class="set-pic" src="/images/avatar2.png" alt=""></button>
-            <button data-avatar="/images/avatar3.png" class="avatar" ><img class="set-pic" src="/images/avatar3.png" alt=""></button>
-            <button data-avatar="/images/avatar4.png" class="avatar" ><img class="set-pic" src="/images/avatar4.png" alt=""></button>
-            <button data-avatar="/images/avatar5.png" class="avatar" ><img class="set-pic" src="/images/avatar5.png" alt=""></button>
-         </div> 
-         <div class="btn-section">
-         <button class="setting-pic-button set-btn">Update Picture</button>
+      <div class='btn-section'>
+        <button class='setting-pic-button set-btn'>Update Picture</button>
 
-         </div>
-         <h3 class="updated-text header-setting"></h3>
-
-         <div class="setting-middle">
-            <div class="">
-            <h1 class="header-setting">Change Header</h1>
-
-            </div>
-         <button class="set-header"  data-header-name="/images/treeheader.jpg"><img class="setting-header-pic" src="/images/treeheader.jpg" alt=""></button>
-         <button class="set-header"  data-header-name="/images/darkmatter.jpg"><img class="setting-header-pic" src="/images/darkmatter.jpg" alt=""></button>
-         <button class="set-header"  data-header-name="/images/darkmatter2.jpg"><img class="setting-header-pic" src="/images/darkmatter2.jpg" alt=""></button>
-         <button class="set-header"  data-header-name="/images/weddingheader.jpg"><img class="setting-header-pic" src="/images/weddingheader.jpg" alt=""></button>
-         <button class="set-header"  data-header-name="/images/bubbleheaderr.jpg"><img class="setting-header-pic" src="/images/bubbleheaderr.jpg" alt=""></button>
-         </div>
-         <h3 class="update-header-alert"></h3>
-         <div class="btn-section">
-         <button class="submit-header set-btn">Update Header</button>
-
-         </div>
-         {{!-- {{#if isHighLevel1}} --}}
-         <div class="borderglowoptions">
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-         </div>
-         {{!-- {{/if}}
-         {{#if isHighLevel2}} --}}
-         <div class="borderglowoptions">
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-         </div>
-         {{!-- {{/if}}
-         {{#if isHighLevel3}} --}}
-         <div class="borderglowoptions">
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
-         </div>
-         {{!-- {{/if}} --}}
-         <div class="btn-section">
-          <button class="submit-border set-btn">Update Profile Border</button>
-         </div>
-          
-             <div class="update-user">
-              <h3>Update Information</h3>
-              <input type="text" value="{{user.first_name}}" name="first" id="first">
-              <input type="text" value="{{user.last_name}}" name="last" id="last">
-              <input type="text" value="{{user.user_name}}" name="setting-username" id="setting-username">
-              <input type="text" value="{{user.bio}}" name="setting-bio" id="setting-bio">
-              <input type="text" value="{{user.github_url}}" name="setting-github" id="setting-github">
-              <h3 class="update-info-alert"></h3>
-              <button class="update-user-button set-btn">Update Information</button>
-              
-             </div>
-
-            
-
-        </div>
-      
-        
-        
-  
-
-
-        <div class="all-posts">
-
-    
-
-
-
-
-        </div>
       </div>
-      
-      <div id="postModal" class="modal">
-        <div class="modal-content">
-          
-          <span class="close-button-post">&times;</span>
-         
+      <h3 class='updated-text header-setting'></h3>
 
-          </div>
-          
-        </div>
-
-      <div class="right-profile-side profile-container">
-        
-        
-
+      <div class='setting-middle'>
+        <div class=''>
+          <h1 class='header-setting'>Change Header</h1>
 
         </div>
-    
+        <button
+          class='set-header'
+          data-header-name='/images/treeheader.jpg'
+        ><img
+            class='setting-header-pic'
+            src='/images/treeheader.jpg'
+            alt=''
+          /></button>
+        <button
+          class='set-header'
+          data-header-name='/images/darkmatter.jpg'
+        ><img
+            class='setting-header-pic'
+            src='/images/darkmatter.jpg'
+            alt=''
+          /></button>
+        <button
+          class='set-header'
+          data-header-name='/images/darkmatter2.jpg'
+        ><img
+            class='setting-header-pic'
+            src='/images/darkmatter2.jpg'
+            alt=''
+          /></button>
+        <button
+          class='set-header'
+          data-header-name='/images/weddingheader.jpg'
+        ><img
+            class='setting-header-pic'
+            src='/images/weddingheader.jpg'
+            alt=''
+          /></button>
+        <button
+          class='set-header'
+          data-header-name='/images/bubbleheaderr.jpg'
+        ><img
+            class='setting-header-pic'
+            src='/images/bubbleheaderr.jpg'
+            alt=''
+          /></button>
+      </div>
+      <h3 class='update-header-alert'></h3>
+      <div class='btn-section'>
+        <button class='submit-header set-btn'>Update Header</button>
+
+      </div>
+      {{#if isHighLevel1}}
+        <div class='borderglowoptions'>
+          <button data-border='level-threeA' class='levelborder'><img
+              class='set-pic level-threeA'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+          <button data-border='level-threeB' class='levelborder'><img
+              class='set-pic level-threeB'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+          <button data-border='level-threeC' class='levelborder'><img
+              class='set-pic level-threeC'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
         </div>
+      {{/if}}
+      {{#if isHighLevel2}}
+        <div class='borderglowoptions'>
+          <button data-border='level-fourA' class='levelborder'><img
+              class='set-pic level-fourA'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+          <button data-border='level-fourB' class='levelborder'><img
+              class='set-pic level-fourB'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+          <button data-border='level-fourC' class='levelborder'><img
+              class='set-pic level-fourC'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+        </div>
+      {{/if}}
+      {{#if isHighLevel3}}
+        <div class='borderglowoptions'>
+          <button data-border='level-fiveA' class='levelborder'><img
+              class='set-pic level-fiveA'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+          <button data-border='level-fiveB' class='levelborder'><img
+              class='set-pic level-fiveB'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+          <button data-border='level-fiveC' class='levelborder'><img
+              class='set-pic level-fiveC'
+              src='{{user.pic}}'
+              alt=''
+            /></button>
+        </div>
+      {{/if}}
+      <div class='btn-section'>
+        <h3 class='border-update'></h3>
+        <button class='submit-border set-btn'>Update Profile Border</button>
+      </div>
+
+      <div class='update-user'>
+        <h3>Update Information</h3>
+        <input
+          type='text'
+          value='{{user.first_name}}'
+          name='first'
+          id='first'
+        />
+        <input type='text' value='{{user.last_name}}' name='last' id='last' />
+        <input
+          type='text'
+          value='{{user.user_name}}'
+          name='setting-username'
+          id='setting-username'
+        />
+        <input
+          type='text'
+          value='{{user.bio}}'
+          name='setting-bio'
+          id='setting-bio'
+        />
+        <input
+          type='text'
+          value='{{user.github_url}}'
+          name='setting-github'
+          id='setting-github'
+        />
+        <h3 class='update-info-alert'></h3>
+        <button class='update-user-button set-btn'>Update Information</button>
       </div>
     </div>
+    <div class='all-posts'>
+    </div>
+  </div>
+  <div id='postModal' class='modal'>
+    <div class='modal-content'>
+      <span class='close-button-post'>&times;</span>
+    </div>
+  </div>
+  <div class='right-profile-side profile-container'>
+  </div>
+</div>
 
-
-
-
-<script src="/js/setting.js"></script>
-<script src="/js/logout.js"></script>
-  {{#if isHighLevel1}}
-        <script src=""></script>
-  {{/if}}
+<script src='/js/setting.js'></script>
+<script src='/js/logout.js'></script>
+{{#if isHighLevel1}}
+  <script src='/js/border.js'></script>
+{{/if}}
