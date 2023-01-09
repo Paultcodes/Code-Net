@@ -1,4 +1,5 @@
 const submitPost = document.querySelectorAll('.submit-post');
+
 let postType;
 let type;
 
@@ -10,6 +11,11 @@ const submitPostHandler = async () => {
   }
 
   const postInput = document.querySelector('.post-input').value.trim();
+
+  if (postInput === 'bored') {
+    loadGame();
+    return;
+  }
 
   if (postInput) {
     const response = await fetch('/create', {
@@ -39,7 +45,6 @@ for (let i = 0; i < submitPost.length; i++) {
 
 const allLikeButtons = document.querySelectorAll('.like-button');
 
-
 for (let i = 0; i < allLikeButtons.length; i++) {
   allLikeButtons[i].addEventListener('click', async function (event) {
     event.preventDefault();
@@ -61,3 +66,15 @@ for (let i = 0; i < allLikeButtons.length; i++) {
     }
   });
 }
+
+const loadGame = async () => {
+  const response = await fetch('/api/makeGame', {
+    method: 'POST',
+  });
+
+  if (response.ok) {
+    document.location.replace('/game');
+  } else {
+    alert('failed');
+  }
+};
