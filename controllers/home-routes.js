@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { Post, User, Language, Comment, sess } = require('../models');
 const checkIfLogged = require('../utils/checkLoggedIn');
 
-//Route for displaying the home page. Retrieves all posts and the current user's information from the database and renders the home page with the retrieved data.
+//Route for displaying the home page. Retrieves all posts and the current user's information from the database and renders the home page with the retrieved data..
 router.get('/', checkIfLogged, async (req, res) => {
   try {
     const allData = await Post.findAll({
