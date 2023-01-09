@@ -42,6 +42,30 @@
          <button class="submit-header set-btn">Update Header</button>
 
          </div>
+         {{!-- {{#if isHighLevel1}} --}}
+         <div class="borderglowoptions">
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+         </div>
+         {{!-- {{/if}}
+         {{#if isHighLevel2}} --}}
+         <div class="borderglowoptions">
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+         </div>
+         {{!-- {{/if}}
+         {{#if isHighLevel3}} --}}
+         <div class="borderglowoptions">
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+          <button data-border="" class="levelborder"><img class="set-pic" src="{{user.pic}}" alt=""></button>
+         </div>
+         {{!-- {{/if}} --}}
+         <div class="btn-section">
+          <button class="submit-border set-btn">Update Profile Border</button>
+         </div>
           
              <div class="update-user">
               <h3>Update Information</h3>
@@ -56,6 +80,7 @@
              </div>
 
         </div>
+      
         
         
   
@@ -97,3 +122,6 @@
 
 <script src="/js/setting.js"></script>
 <script src="/js/logout.js"></script>
+  {{#if isHighLevel1}}
+        <script src=""></script>
+  {{/if}}

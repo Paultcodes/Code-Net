@@ -8,7 +8,7 @@ router.get('/', checkIfLogged,  async (req, res) => {
       where: {
         id: req.session.user_id,
       },
-      attributes: ['first_name', 'last_name', 'user_name', 'bio', 'github_url'],
+      attributes: ['first_name', 'last_name', 'pic', 'user_name', 'bio', 'github_url'],
     });
 
     const user = getUser.get({ plain: true });
