@@ -274,6 +274,12 @@ button {
 .top-top {
   position: sticky;
 }
+.borderglowoptions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
 
 .mod {
   background-color: rgba(61, 62, 62, 0.701);
