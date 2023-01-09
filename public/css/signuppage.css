@@ -21,7 +21,7 @@
 
 .avatar:hover {
     outline: 8px solid white;
-    outline-offset: 8px;
+    outline-offset: 5px;
 }
 
 .signuplogo {

@@ -2,7 +2,10 @@
       <div class="nav-left-side">
         <a  href="/"><i class="fa-solid fa-house home-button"></i></a>
         <a href="/profile/{{sess}}"><i class="fa-solid fa-user"></i></a>
-        <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+         <button class="button-m logout-button">
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        </button>
         <a href=""><i class="fa-solid fa-gear"></i></a>
         
     
@@ -17,7 +20,10 @@
             <button data-avatar="/images/avatar4.png" class="avatar" ><img class="set-pic" src="/images/avatar4.png" alt=""></button>
             <button data-avatar="/images/avatar5.png" class="avatar" ><img class="set-pic" src="/images/avatar5.png" alt=""></button>
          </div> 
-         <button class="setting-pic-button">Update</button>
+         <div class="btn-section">
+         <button class="setting-pic-button set-btn">Update Picture</button>
+
+         </div>
          <h3 class="updated-text header-setting"></h3>
 
          <div class="setting-middle">
@@ -32,9 +38,22 @@
          <button class="set-header"  data-header-name="/images/bubbleheaderr.jpg"><img class="setting-header-pic" src="/images/bubbleheaderr.jpg" alt=""></button>
          </div>
          <h3 class="update-header-alert"></h3>
-         <button class="submit-header">Update</button>
+         <div class="btn-section">
+         <button class="submit-header set-btn">Update Header</button>
+
+         </div>
           
-             
+             <div class="update-user">
+              <h3>Update Information</h3>
+              <input type="text" value="{{user.first_name}}" name="first" id="first">
+              <input type="text" value="{{user.last_name}}" name="last" id="last">
+              <input type="text" value="{{user.user_name}}" name="setting-username" id="setting-username">
+              <input type="text" value="{{user.bio}}" name="setting-bio" id="setting-bio">
+              <input type="text" value="{{user.github_url}}" name="setting-github" id="setting-github">
+              <h3 class="update-info-alert"></h3>
+              <button class="update-user-button set-btn">Update Information</button>
+              
+             </div>
 
         </div>
         
@@ -77,3 +96,4 @@
 
 
 <script src="/js/setting.js"></script>
+<script src="/js/logout.js"></script>

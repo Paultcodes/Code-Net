@@ -1,5 +1,6 @@
 const commentSubmitButton = document.querySelector('.submit-comment');
 
+
 const submitCommentHandler = async () => {
   const commentInput = document.querySelector('.comment-input').value.trim();
 

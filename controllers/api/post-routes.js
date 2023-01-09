@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
+const checkIfLogged = require('../../utils/checkLoggedIn');
 
 //Route for getting one post
-router.get('/:id', async (req, res) => {
+router.get('/:id', checkIfLogged, async (req, res) => {
   try {
     const getCurrentUser = await User.findOne({
       where: {
@@ -55,7 +56,11 @@ router.get('/:id', async (req, res) => {
     });
     const postData = getPost.get({ plain: true });
     console.log(postData);
-    res.render('postpage', { postData, currentUser, sess: req.session.user_id });
+    res.render('postpage', {
+      postData,
+      currentUser,
+      sess: req.session.user_id,
+    });
     // res.status(200).json(getPost);
   } catch (err) {
     console.log(err);
