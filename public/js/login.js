@@ -15,7 +15,8 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      console.log(response.status)
+      (document.querySelector('.warning-text').textContent =
+        'Wrong username or password');
     }
   }
 };
@@ -23,5 +24,3 @@ const loginFormHandler = async (event) => {
 const submitLogin = document
   .querySelector('.submit-login')
   .addEventListener('click', loginFormHandler);
-
-

@@ -11,7 +11,7 @@ const updateUserInfo = async (event) => {
   const bio = document.getElementById('setting-bio').value.trim();
   const github = document.getElementById('setting-github').value.trim();
 
-  console.log(firstName)
+  console.log(firstName);
 
   if (firstName && lastName && username && bio && github) {
     const response = await fetch('/settings/updateUser', {
@@ -21,10 +21,13 @@ const updateUserInfo = async (event) => {
     });
 
     if (response.ok) {
-      alert('Updated');
+      document.querySelector('.update-info-alert').textContent = 'Updated';
     } else {
       alert('failed');
     }
+  } else {
+    document.querySelector('.update-info-alert').textContent =
+      'All Fields Are Required';
   }
 };
 
@@ -96,8 +99,6 @@ const updateHeaderHandler = async () => {
     alert('failed');
   }
 };
-
-
 
 const updateUserButton = document.querySelector('.update-user-button');
 const btnn = document.querySelector('.setting-pic-button');
