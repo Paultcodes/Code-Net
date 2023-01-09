@@ -14,13 +14,16 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   secret: 'gert34qgvfedsg4r3q4gdagf343',
   cookie: {
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
   },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
-  }),
+    db: sequelize
+  })
 };
 
 app.use(session(sess));
@@ -44,9 +47,5 @@ app.use(routes);
 //This code is using the sync method from the Sequelize library to synchronize the models with the database.
 //The force: true option means that the synchronization will drop any existing tables and recreate them based on the models.
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
-    console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
-    )
-  );
+  app.listen(PORT, () => console.log('Connected'));
 });
