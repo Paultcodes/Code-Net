@@ -1,4 +1,4 @@
-let apiKey = '6299fa055f9743a8aa1b9c729d55a10e';
+// let apiKey = '6299fa055f9743a8aa1b9c729d55a10e';
 var modal = document.getElementById('simpleModal');
 var modalBtn = document.getElementById('modalBtn');
 var closeBtn = document.querySelector('.close-button');
@@ -7,24 +7,24 @@ var postModalButton = document.getElementById('postModalButton');
 var postModal = document.getElementById('postModal');
 var closetBtnPost = document.querySelector('.close-button-post');
 
-let url =
-  'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=6299fa055f9743a8aa1b9c729d55a10e';
+// let url =
+//   'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=6299fa055f9743a8aa1b9c729d55a10e';
 
-const getNews = async () => {
-  fetch(url)
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (news) {
-          getAll(news);
-        });
-      } else {
-        alert('Error: ' + response.statusText);
-      }
-    })
-    .catch(function (error) {
-      alert('Unable to connect to News');
-    });
-};
+// const getNews = async () => {
+//   fetch(url)
+//     .then(function (response) {
+//       if (response.ok) {
+//         response.json().then(function (news) {
+//           getAll(news);
+//         });
+//       } else {
+//         alert('Error: ' + response.statusText);
+//       }
+//     })
+//     .catch(function (error) {
+//       alert('Unable to connect to News');
+//     });
+// };
 
 const newsSection = document.querySelector('.news');
 
