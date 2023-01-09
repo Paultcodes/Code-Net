@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { Session, Store } = require('express-session');
 
 const { Post, User, Language, Comment, sess } = require('../models');
 const checkIfLogged = require('../utils/checkLoggedIn');
