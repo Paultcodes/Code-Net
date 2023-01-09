@@ -11,6 +11,7 @@ router.get('/', checkIfLogged, async (req, res) => {
       where: {
         id: req.session.user_id,
       },
+<<<<<<< HEAD
       attributes: [
         'first_name',
         'last_name',
@@ -19,6 +20,9 @@ router.get('/', checkIfLogged, async (req, res) => {
         'github_url',
         'level',
       ],
+=======
+      attributes: ['first_name', 'last_name', 'pic', 'user_name', 'bio', 'github_url'],
+>>>>>>> cd33a21e02b74a50c45f1ce572aaa14cc8875429
     });
 
     const user = getUser.get({ plain: true });
