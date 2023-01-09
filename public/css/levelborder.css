@@ -1,0 +1,140 @@
+.level-threeA {
+    -webkit-animation: level-threeA 1s ease-in-out infinite alternate;
+    -moz-animation: level-threeA 1s ease-in-out infinite alternate;
+    animation: level-threeA 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-threeA {
+    from {
+      box-shadow: 0 0 10px #2300e6, 0 0 20px #2300e6, 0 0 30px #2300e6, 0 0 40px #2300e6,
+        0 0 50px #2300e6, 0 0 60px #2300e6, 0 0 70px #2300e6;
+    }
+  }
+
+  .level-threeB {
+    -webkit-animation: level-threeB 1s ease-in-out infinite alternate;
+    -moz-animation: level-threeB 1s ease-in-out infinite alternate;
+    animation: level-threeB 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-threeB {
+    from {
+      box-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 30px rgb(255, 0, 0), 0 0 40px rgb(255, 0, 0),
+        0 0 50px rgb(255, 0, 0), 0 0 60px rgb(255, 0, 0), 0 0 70px rgb(255, 0, 0);
+    }
+  }
+
+  .level-threeC {
+    -webkit-animation: level-threeC 1s ease-in-out infinite alternate;
+    -moz-animation: level-threeC 1s ease-in-out infinite alternate;
+    animation: level-threeC 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-threeC {
+    from {
+      box-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green, 0 0 40px green,
+        0 0 50px green, 0 0 60px green, 0 0 70px green;
+    }
+  }
+/* ------------------------------------------------------------------------------------------------- */
+  .level-fourA {
+    -webkit-animation: level-fourA 1s ease-in-out infinite alternate;
+    -moz-animation: level-fourA 1s ease-in-out infinite alternate;
+    animation: level-fourA 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-fourA {
+    from {
+      box-shadow: 0 0 10px rgb(255, 0, 255), 0 0 20px rgb(255, 0, 255), 0 0 30px rgb(144, 0, 255), 0 0 40px rgb(144, 0, 255),
+        0 0 50px rgb(144, 0, 255), 0 0 60px rgb(144, 0, 255), 0 0 70px rgb(144, 0, 255);
+    }
+    to {
+      box-shadow: 0 0 10px rgb(144, 0, 255), 0 0 20px rgb(144, 0, 255), 0 0 30px rgb(255, 0, 255), 0 0 40px rgb(255, 0, 255),
+        0 0 50px rgb(255, 0, 255), 0 0 60px rgb(255, 0, 255), 0 0 70px rgb(255, 0, 255);
+    }
+  }
+
+  .level-fourB {
+    -webkit-animation: level-fourB 1s ease-in-out infinite alternate;
+    -moz-animation: level-fourB 1s ease-in-out infinite alternate;
+    animation: level-fourB 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-fourB {
+    from {
+      box-shadow: 0 0 10px rgb(13, 255, 0), 0 0 20px rgb(13, 255, 0), 0 0 30px rgb(255, 174, 0), 0 0 40px rgb(255, 174, 0),
+        0 0 50px rgb(255, 174, 0), 0 0 60px rgb(255, 174, 0), 0 0 70px rgb(255, 174, 0);
+    }
+    to {
+      box-shadow: 0 0 10px rgb(255, 174, 0), 0 0 20px rgb(255, 174, 0), 0 0 30px rgb(13, 255, 0), 0 0 40px rgb(13, 255, 0),
+        0 0 50px rgb(13, 255, 0), 0 0 60px rgb(13, 255, 0), 0 0 70px rgb(13, 255, 0);
+    }
+  }
+
+  .level-fourC {
+    -webkit-animation: level-fourC 1s ease-in-out infinite alternate;
+    -moz-animation: level-fourC 1s ease-in-out infinite alternate;
+    animation: level-fourC 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-fourC {
+    from {
+      box-shadow: 0 0 10px rgb(4, 0, 255), 0 0 20px rgb(4, 0, 255), 0 0 30px rgb(0, 238, 255), 0 0 40px rgb(0, 238, 255),
+        0 0 50px rgb(0, 238, 255), 0 0 60px rgb(0, 238, 255), 0 0 70px rgb(0, 238, 255);
+    }
+    to {
+      box-shadow: 0 0 10px rgb(0, 238, 255), 0 0 20px rgb(0, 238, 255), 0 0 30px rgb(4, 0, 255), 0 0 40px rgb(4, 0, 255),
+        0 0 50px rgb(4, 0, 255), 0 0 60px rgb(4, 0, 255), 0 0 70px rgb(4, 0, 255);
+    }
+  }
+/* ------------------------------------------------------------------------------------------------- */
+  .level-fiveA {
+    -webkit-animation: level-fiveA 1s ease-in-out infinite alternate;
+    -moz-animation: level-fiveA 1s ease-in-out infinite alternate;
+    animation: level-fiveA 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-fiveA {
+    from {
+      box-shadow: 0 0 10px rgb(242, 255, 0), 0 0 20px rgb(242, 255, 0), 0 0 30px rgb(242, 255, 0), 0 0 40px rgb(242, 255, 0),
+        0 0 50px rgb(242, 255, 0), 0 0 60px rgb(242, 255, 0), 0 0 70px rgb(242, 255, 0);
+    }
+    to {
+      box-shadow: 0 0 10px rgb(255, 98, 0), 0 0 20px rgb(255, 98, 0), 0 0 30px rgb(4255, 98, 0), 0 0 40px rgb(255, 98, 0),
+        0 0 50px rgb(255, 98, 0), 0 0 60px rgb(255, 98, 0), 0 0 70px rgb(255, 98, 0);
+    }
+  }
+
+  .level-fiveB {
+    -webkit-animation: level-fiveB 1s ease-in-out infinite alternate;
+    -moz-animation: level-fiveB 1s ease-in-out infinite alternate;
+    animation: level-fiveB 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-fiveB {
+    from {
+      box-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px rgb(0, 0, 0), 0 0 40px rgb(0, 0, 0),
+        0 0 50px rgb(0, 0, 0), 0 0 60px rgb(0, 0, 0), 0 0 70px rgb(0, 0, 0);
+    }
+    to {
+      box-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255), 0 0 40px rgb(255, 255, 255),
+        0 0 50px rgb(255, 255, 255), 0 0 60px rgb(255, 255, 255), 0 0 70px rgb(255, 255, 255);
+    }
+  }
+
+  .level-fiveC {
+    -webkit-animation: level-fiveC 1s ease-in-out infinite alternate;
+    -moz-animation: level-fiveC 1s ease-in-out infinite alternate;
+    animation: level-fiveC 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes level-fiveC {
+    from {
+      box-shadow: 0 0 10px rgba(173, 171, 254, 0.317), 0 0 20px rgb(173, 171, 254, 0.317), 0 0 30px rgb(173, 171, 254, 0.317), 0 0 40px rgb(173, 171, 254, 0.317),
+        0 0 50px rgb(173, 171, 254, 0.317), 0 0 60px rgb(173, 171, 254, 0.317), 0 0 70px rgb(173, 171, 254, 0.317);
+    }
+    to {
+      box-shadow: 0 0 10px rgb(188, 188, 188), 0 0 20px rgb(188, 188, 188), 0 0 30px rgb(188, 188, 188), 0 0 40px rgb(188, 188, 188),
+        0 0 50px rgb(188, 188, 188), 0 0 60px rgb(188, 188, 188), 0 0 70px rgb(188, 188, 188);
+    }
+  }
