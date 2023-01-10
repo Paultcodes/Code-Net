@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Post, User, Language, Comment, sess } = require('../models');
+const { Post, User, Language, Comment } = require('../models');
 const checkIfLogged = require('../utils/checkLoggedIn');
 
 //Route for displaying the home page. Retrieves all posts and the current user's information from the database and renders the home page with the retrieved data..

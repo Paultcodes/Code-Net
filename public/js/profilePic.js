@@ -73,7 +73,7 @@ const signupFormHandler = async (event) => {
 };
 
 const submitSignupLogin = document
-  .querySelector('.form__button')
+  .getElementById('signup-continue')
   .addEventListener('click', signupFormHandler);
 
 console.log('hello');

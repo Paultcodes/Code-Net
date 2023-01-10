@@ -1,9 +1,8 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 
-
-//Creates a new user using the provided form data and sets the user's session information. 
-router.post('/', async (req, res) => {
+//Creates a new user using the provided form data and sets the user's session information.
+router.post("/", async (req, res) => {
   try {
     const dbUserData = await User.create({
       user_name: req.body.userName,
@@ -12,7 +11,7 @@ router.post('/', async (req, res) => {
       bio: req.body.bio,
       pic: req.body.selectedPic,
       password: req.body.password,
-      github_url: req.body.github,
+      github_url: req.body.github
     });
 
     req.session.save(() => {
@@ -27,27 +26,27 @@ router.post('/', async (req, res) => {
   }
 });
 
-//Route for handling a user logging in. 
-//Finds the user with the provided username in the database and checks if the provided password is valid for that user. 
-//If the username and password are valid. 
+//Route for handling a user logging in.
+//Finds the user with the provided username in the database and checks if the provided password is valid for that user.
+//If the username and password are valid.
 //If the username or password is invalid, sends a message indicating this.
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        user_name: req.body.username,
-      },
+        user_name: req.body.username
+      }
     });
 
     if (!dbUserData) {
-      res.status(400).json({ message: 'Incorrect username or password' });
+      res.status(400).json({ message: "Incorrect username or password" });
       return;
     }
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect username or password' });
+      res.status(400).json({ message: "Incorrect username or password" });
       return;
     }
 
@@ -65,7 +64,7 @@ router.post('/login', async (req, res) => {
 });
 
 //Route for logging out
-router.post('/logout', async (req, res) => {
+router.post("/logout", async (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
