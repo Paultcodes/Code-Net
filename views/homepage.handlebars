@@ -40,9 +40,10 @@
             </div>
             <div class='post-text'>
               <p class='post-user-name'>
-                {{posts.user.first_name}}
-                {{user.last_name}}<span class='post-date'>
-                  · @{{user.user_name}}</span>
+                <span class="first-and-last">[ {{posts.user.first_name}} ]
+                {{user.last_name}}</span>
+                <span class='user-handle'> 
+                  > @{{user.user_name}}</span>
                 <span class='post-date'>{{format_date posts.created_at}}</span>
               </p>
               {{#if posts.is_code}}
