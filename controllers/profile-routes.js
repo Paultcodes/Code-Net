@@ -64,6 +64,7 @@ router.get('/:id', checkIfLogged, async (req, res) => {
       allData,
       proPosts,
       ses: req.session.user_id,
+      profile: true
     });
   } catch (err) {
     console.log(err);

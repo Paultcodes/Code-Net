@@ -34,6 +34,7 @@ var helper = {
       date
     ).getDate()}/${new Date(date).getFullYear()}`;
   },
+  log: (data) => console.log(data)
 };
 
 
