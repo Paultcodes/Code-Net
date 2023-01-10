@@ -40,11 +40,17 @@
             </div>
             <div class='post-text'>
               <p class='post-user-name'>
-                <span class="first-and-last">[ {{posts.user.first_name}} ]
-                {{user.last_name}}</span>
+                <div class="user-details">
+                <span class="name-bracket">[</span>
+                <span class="first-name">
+                  {{posts.user.first_name}}</span><span class="name-bracket">]</span>
+
+                <span class="last-name">{{user.last_name}}</span>
+                
                 <span class='user-handle'> 
-                  > @{{user.user_name}}</span>
-                <span class='post-date'>{{format_date posts.created_at}}</span>
+                   @{{user.user_name}}</span>
+                   </div>
+                
               </p>
               {{#if posts.is_code}}
                 <pre>
@@ -77,6 +83,7 @@
               </button>
             {{else}}
             {{/if_cond}}
+            <span class='post-date'>{{format_date posts.created_at}}</span>
           </div>
         </div>
       {{/each}}

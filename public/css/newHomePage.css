@@ -127,8 +127,16 @@ code {
   font-weight: 900;
   width: 100%;
 }
-.first-and-last {
-  margin-right: 1rem;
+.name-bracket {
+  color: rgba(0,255, 0, .33);
+  font-size: 1.33rem;
+  font-weight: 400;
+}
+.first-name {
+  margin: 0 .33rem;
+}
+.last-name {
+  margin: 0 1rem 0 .33rem;
 }
 .user-handle {
   opacity: .5;
@@ -178,7 +186,11 @@ code {
   font-size: 30px;
   font-weight: 900;
 }
-
+.user-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 .post {
   display: flex;
   flex-direction: column;
@@ -231,8 +243,8 @@ i {
 
 .top {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px;
   margin: 1rem 1rem 3rem;
 }
@@ -252,7 +264,9 @@ button {
   display: flex;
   margin-left: 4rem;
   margin-top: 1rem;
-  width: 50%;
+  width: 80%;
+  font-size: .5rem;
+
 }
 .button-section > a {
   opacity: 0.5;
@@ -417,20 +431,32 @@ button {
 }
 
 @media (max-width: 720px) {
+  .main-container {
+    width: 100%;
+    margin: 0 auto;
+    flex-flow: column nowrap;
+  }
+  .setting-pic {
+    flex-wrap: wrap;
+  }
+  .setting-pic > button {
+    margin: .33rem;
+  }
   .right-profile-side {
     display: none;
   }
 
   .main-post-middle {
-    width: 300px;
+    width: 100%;
   }
 
   pre {
     width: 220px;
   }
 
+
   .middle-user-info {
-    width: 400px;
+    justify-content: center;
   }
 
   .avatar-pic {
@@ -438,13 +464,15 @@ button {
     top: -25px;
   }
 
+  .post-date {
+    margin-left: auto;
+  }
   .refresh,
   .refresh-btn-text {
     display: none;
   }
 
   .main-section {
-    width: 300px;
     display: flex;
     flex-direction: column;
   }
@@ -454,15 +482,26 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    margin: 1rem auto;
+    width: 90%;
+  }
+  .post-section > textarea {
+    width: 90%;
   }
 
   .post-input {
     width: 200px;
   }
-
+  .post-user-name {
+    display: flex;
+    flex-flow: column nowrap;
+  }
   .nav-left-side {
-    width: 100px;
+    width: 100%;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
     /* padding-left: 20px; */
   }
 
