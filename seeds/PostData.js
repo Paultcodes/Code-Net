@@ -31,6 +31,5 @@ const postData = [
   },
 ];
 
-const seedPost = async () => await Post.bulkCreate(postData);
-
-module.exports = seedPost;
+module.exports = async () => 
+  await Post.bulkCreate(postData);

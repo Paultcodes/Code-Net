@@ -19,6 +19,6 @@ const likeData = [
     }
 ];
 
-const seedLike = async () => await Like.bulkCreate(likeData);
+module.exports = async () => 
+  await Like.bulkCreate(likeData);
 
-module.exports = seedLike;

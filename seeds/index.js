@@ -8,6 +8,7 @@ const seedDatabase = async () => {
   await require('./PostData')();
   await require('./commentData')();
   await require('./LikeData')();
+  
   process.exit(0);
 };
 

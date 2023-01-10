@@ -35,6 +35,7 @@ const signupFormHandler = async (event) => {
 
   console.log(userName);
 
+  
   if (
     userName &&
     password &&

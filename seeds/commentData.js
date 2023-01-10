@@ -13,5 +13,5 @@ const commentData = [
   },
 ];
 
-const seedComment = async () => await Comment.bulkCreate(commentData);
-module.exports = seedComment;
+module.exports = async () => 
+  await Comment.bulkCreate(commentData);
