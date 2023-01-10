@@ -5,13 +5,9 @@
   display: flex;
   outline: 1px solid white;
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  width: 87px;
   transition: all 0.3s;
   cursor: pointer;
-  opacity: 100%;
-  /* outline: calc(100px/2) solid #0009;
-    outline-offset: calc(100px/-2); */
 }
 .button-group {
   display: flex;
@@ -30,15 +26,34 @@
   text-align: center;
   justify-content: center;
 }
+.logo-subtext {
+  pointer-events: none;
+}
 
 #create-account-header {
-    font-size: 20px;
     font-weight: 400;
-    margin:.5rem auto 0
+    margin:.5rem auto 0;
+    font-size: .66rem;
+    opacity: .7;
+    pointer-events: none;
+}
+
+.select-an-avatar {
+  margin: 3rem auto 1rem;
+  font-size: .6rem;
+  opacity: .5;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  border-radius: 25%;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  padding: .33rem;
+  pointer-events: none;
 }
 
 #signup-avatar-container {
-    margin: 3rem auto;
+    margin-bottom: 4rem;
 }
 
 .signup-hr-lg,
@@ -46,6 +61,8 @@
 .signup-hr-sm {
     border-radius: 50%;
     background-color: white;
+    height: 3px;
+    opacity: .5;
 }
 .signup-hr-lg {
     width: 100%;
@@ -58,6 +75,7 @@
 .signup-hr-sm {
     width: 33%;
     margin-top: .5rem;
+    height: 1px;
 }
 
 .signup-input {
@@ -80,7 +98,7 @@
   height: 2rem;
   background-color: green;
   border-radius: 10px;
-  margin: .33rem auto 2rem;
+  margin: 1rem;
   border: 1px solid white;
   transition: all .3s;
 }
@@ -101,8 +119,21 @@
 .already-account {
   font-size: .66rem;
   opacity: .7;
+  pointer-events: none;
 }
 
 #linkLogin {
   margin-top: 1rem;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  padding: .33rem .66rem;
+  border-radius: 25%;
+  transition: all .3s;
+}
+#linkLogin:hover {
+  text-decoration: none;
+  color: green;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  padding: .33rem .99rem;
 }

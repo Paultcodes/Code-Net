@@ -1,4 +1,3 @@
-
 module.exports = [
     {
         post_id: 1,
