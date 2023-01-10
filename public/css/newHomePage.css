@@ -367,7 +367,7 @@ button {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 720px) {
   .right-profile-side {
     display: none;
   }
