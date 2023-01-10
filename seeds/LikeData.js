@@ -1,6 +1,5 @@
-const { Like } = require("../models");
 
-const likeData = [
+module.exports = [
     {
         post_id: 1,
         user_id: 1
@@ -19,6 +18,4 @@ const likeData = [
     }
 ];
 
-module.exports = async () => 
-  await Like.bulkCreate(likeData);
 

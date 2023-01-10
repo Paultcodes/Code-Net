@@ -1,6 +1,4 @@
-const { User } = require('../models');
-
-const userData = [
+module.exports = [
   {
     user_name: 'jonCoder523',
     first_name: 'John',
@@ -50,5 +48,3 @@ const userData = [
   },
 ];
 
-module.exports = async () => 
-  await User.bulkCreate(userData);

@@ -1,6 +1,4 @@
-const { Language } = require('../models');
-
-const languageData = [
+module.exports = [
   {
     language_name: 'JavaScript',
   },
@@ -12,6 +10,5 @@ const languageData = [
   },
 ];
 
-module.exports = async () => 
-  await Language.bulkCreate(languageData);
+
 

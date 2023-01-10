@@ -1,6 +1,4 @@
-const { Comment } = require('../models');
-
-const commentData = [
+module.exports = [
   {
     text: 'This is my comment',
     post_id: 1,
@@ -12,6 +10,3 @@ const commentData = [
     user_id: 2,
   },
 ];
-
-module.exports = async () => 
-  await Comment.bulkCreate(commentData);

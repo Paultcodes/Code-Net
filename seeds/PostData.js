@@ -1,6 +1,4 @@
-const { Post } = require('../models');
-
-const postData = [
+module.exports = [
   {
     text: 'Hello',
     likes: 1,
@@ -30,6 +28,3 @@ const postData = [
     is_code: true,
   },
 ];
-
-module.exports = async () => 
-  await Post.bulkCreate(postData);
