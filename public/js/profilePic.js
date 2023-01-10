@@ -33,8 +33,6 @@ const signupFormHandler = async (event) => {
   const bio = document.querySelector('.bio').value.trim();
   const github = document.querySelector('.github').value.trim();
 
-  console.log(userName);
-
   
   if (
     userName &&
