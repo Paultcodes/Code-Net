@@ -1,49 +1,109 @@
-    <div class="container-2">
-        
-        <form class="form" id="createAccount">
-             <div class="logo"><i class="fa-thin fa-c signuplogo"></i>ode-Net</div>
-             
-            <div class="button-group">
-            <button class="avatar" data-avatar="/images/avatar.jpg"><img class="pic-pro" src="/images/avatar.jpg" alt="avatar0"/></button>
-            <button class="avatar" data-avatar="/images/avatar1.png"><img class="pic-pro" src="/images/avatar1.png" alt="avatar1"/></button>
-            <button class="avatar" data-avatar="/images/avatar2.png"><img class="pic-pro" src="/images/avatar2.png" alt="avatar2"/></button>
-            <button class="avatar" data-avatar="/images/avatar3.png"><img class="pic-pro" src="/images/avatar3.png" alt="avatar3"/></button>
-            <button class="avatar" data-avatar="/images/avatar4.png"><img class="pic-pro" src="/images/avatar4.png" alt="avatar4"/></button>
-            <button class="avatar" data-avatar="/images/avatar5.png"><img class="pic-pro" src="/images/avatar5.png" alt="avatar5"/></button>
-            <button class="avatar" data-avatar="/images/avatar6.png"><img class="pic-pro" src="/images/avatar6.png" alt="avatar6"/></button>
-            </div>
-                        <h1 class="form__title">Create Account</h1>
+<link rel="stylesheet" href="/css/signuppage.css" />
 
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" class="form__input firstName"  placeholder="First Name">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" class="form__input lastName" placeholder="Last Name">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" class="form__input github" placeholder="Github URL">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" class="form__input bio" placeholder="Bio: Tell Us About You">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" id="signupUsername" class="form__input userName" placeholder="Username">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" class="form__input password" placeholder="Password">
-                <div class="form__input-error-message"></div>
-                <h3 class="signup-warning"></h3>
-            </div>
-            <button class="form__button" type="submit">Continue</button>
-            <p class="form__text">
-                <a class="form__link" href="/login/user" id="linkLogin">Already have an account? Sign in</a>
-            </p>
-        </form>
+<div class="container-2">
+
+  <form class="form" id="createAccount" autocomplete="off">
+    <hr class="signup-hr-lg" />
+    <div class="logo"><i class="fa-thin fa-c signuplogo"></i>ode-Net</div>
+    <hr class="signup-hr-md" />
+    <div id="signup-avatar-container" class="button-group">
+      <button class="avatar" data-avatar="/images/avatar.jpg"><img
+          class="pic-pro"
+          src="/images/avatar.jpg"
+          alt="avatar0"
+        /></button>
+      <button class="avatar" data-avatar="/images/avatar1.png"><img
+          class="pic-pro"
+          src="/images/avatar1.png"
+          alt="avatar1"
+        /></button>
+      <button class="avatar" data-avatar="/images/avatar2.png"><img
+          class="pic-pro"
+          src="/images/avatar2.png"
+          alt="avatar2"
+        /></button>
+      <button class="avatar" data-avatar="/images/avatar3.png"><img
+          class="pic-pro"
+          src="/images/avatar3.png"
+          alt="avatar3"
+        /></button>
+      <button class="avatar" data-avatar="/images/avatar4.png"><img
+          class="pic-pro"
+          src="/images/avatar4.png"
+          alt="avatar4"
+        /></button>
+      <button class="avatar" data-avatar="/images/avatar5.png"><img
+          class="pic-pro"
+          src="/images/avatar5.png"
+          alt="avatar5"
+        /></button>
+      <button class="avatar" data-avatar="/images/avatar6.png"><img
+          class="pic-pro"
+          src="/images/avatar6.png"
+          alt="avatar6"
+        /></button>
     </div>
+    <hr class="signup-hr-md" />
+
+    <h1 id="create-account-header" class="form__title">Create Account</h1>
+    <hr class="signup-hr-sm" />
+
+    <div class="form__message form__message--error"></div>
+    <div class="form__input-group">
+      <input
+        type="text"
+        class="form__input firstName signup-input"
+        placeholder="First Name"
+      />
+      <div class="form__input-error-message"></div>
+    </div>
+    <div class="form__input-group">
+      <input
+        type="text"
+        class="form__input lastName signup-input"
+        placeholder="Last Name"
+      />
+      <div class="form__input-error-message"></div>
+    </div>
+    <div class="form__input-group">
+      <input
+        type="text"
+        class="form__input github signup-input"
+        placeholder="Github URL"
+      />
+      <div class="form__input-error-message"></div>
+    </div>
+    <div class="form__input-group">
+      <input
+        type="text"
+        class="form__input bio signup-input"
+        placeholder="Bio: Tell Us About You"
+      />
+      <div class="form__input-error-message"></div>
+    </div>
+    <div class="form__input-group">
+      <input
+        type="text"
+        id="signupUsername"
+        class="form__input userName signup-input"
+        placeholder="Username"
+      />
+      <div class="form__input-error-message"></div>
+    </div>
+    <div class="form__input-group">
+      <input
+        type="password"
+        class="form__input password signup-input"
+        placeholder="Password"
+      />
+      <div class="form__input-error-message"></div>
+      <h3 class="signup-warning"></h3>
+    </div>
+    <button id="signup-continue" type="submit">CONTINUE</button>
+    <p class="already-account">
+      Already have an account?
+    </p>
+    <a class="form__link" href="/login/user" id="linkLogin">Sign in</a>
+  </form>
+</div>
 <script src="/js/profilePic.js"></script>
