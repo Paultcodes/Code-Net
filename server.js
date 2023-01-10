@@ -26,7 +26,6 @@ const sess = {
   })
 };
 
-app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 
@@ -41,6 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session(sess));
 //Using the routes object as middleware, we are telling the Express application to use the routes defined in the routes object to handle incoming requests.
 app.use(routes);
 
