@@ -12,6 +12,5 @@ const languageData = [
   },
 ];
 
-const seedLanguage = async () => await Language.bulkCreate(languageData);
+module.exports = async () => await Language.bulkCreate(languageData);
 
-module.exports = seedLanguage;
