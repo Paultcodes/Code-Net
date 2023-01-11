@@ -30,7 +30,6 @@ router.get('/:id', checkIfLogged, async (req, res) => {
         'header',
         'border_glow'
       ],
-
     });
 
     const findPosts = await Post.findAll({
@@ -53,12 +52,9 @@ router.get('/:id', checkIfLogged, async (req, res) => {
         },
       ],
     });
-
     const proPosts = findPosts.map((post) => post.get({ plain: true }));
 
-
     const allData = findData.get({ plain: true });
-    console.log(allData);
 
     res.render('profile', {
       allData,

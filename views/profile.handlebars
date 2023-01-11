@@ -3,13 +3,13 @@
   <div class='main-post-middle profile-container'>
     <h4 class='username username-top'style="text-align: right;">{{allData.first_name}}
       {{allData.last_name}}</h4>
-    <img src='{{allData.header}}'  />
+    <img src='{{allData.header}}' class="profile-banner" />
     <img
       class='avatar-pic {{allData.border_glow}}'
       src='{{allData.pic}}'
       alt=''
     />
-    <div class='middle-user-info'>
+    <div class='middle-user-info' style="margin-top: -3rem">
       <p class='username-profile'>{{allData.first_name}}
         {{allData.last_name}}</p>
       <p class='under-username'>@{{allData.user_name}}</p>
@@ -24,7 +24,7 @@
         <span class='bright-text'>Posts</span>
       </div>
     </div>
-    <div class='all-posts'>
+    <div class='all-posts' style="margin-top: 2rem;">
       {{#each proPosts as |post|}}
         <div class='post'>
           <div class='text-post'>
@@ -116,9 +116,7 @@
     </div>
   </div>
   <div class='right-profile-side profile-container'>
-    {{!-- <h2 class='whats-happening'>Whats Happening</h2>
-    <div class='news'>
-    </div> --}}
+
   </div>
 </div>
 
