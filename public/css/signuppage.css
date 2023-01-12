@@ -31,51 +31,50 @@
 }
 
 #create-account-header {
-    font-weight: 400;
-    margin:.5rem auto 0;
-    font-size: .66rem;
-    opacity: .7;
-    pointer-events: none;
+  font-weight: 400;
+  margin: 0.5rem auto 0;
+  font-size: 0.66rem;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .select-an-avatar {
   margin: 3rem auto 1rem;
-  font-size: .6rem;
-  opacity: .5;
+  font-size: 0.6rem;
+  opacity: 0.5;
   border-left: 3px solid black;
   border-right: 3px solid black;
   border-radius: 25%;
   height: 1rem;
   display: flex;
   align-items: center;
-  padding: .33rem;
+  padding: 0.33rem;
   pointer-events: none;
 }
 
 #signup-avatar-container {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .signup-hr-lg,
 .signup-hr-md,
 .signup-hr-sm {
-    border-radius: 50%;
-    background-color: white;
-    height: 3px;
-    opacity: .5;
+  border-radius: 50%;
+  background-color: white;
+  height: 3px;
+  opacity: 0.5;
 }
 .signup-hr-lg {
-    width: 100%;
-    margin: .5rem auto;
+  width: 100%;
+  margin: 0.5rem auto;
 }
 .signup-hr-md {
   width: 66%;
-
 }
 .signup-hr-sm {
-    width: 33%;
-    margin-top: .5rem;
-    height: 1px;
+  width: 33%;
+  margin-top: 0.5rem;
+  height: 1px;
 }
 
 .signup-input {
@@ -83,10 +82,10 @@
   background-color: black;
   color: white;
   border-radius: 5px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .signup-input::placeholder {
-  font-size: .66rem;
+  font-size: 0.66rem;
 }
 .signup-input:focus {
   transform: scale(1.01);
@@ -98,9 +97,9 @@
   height: 2rem;
   background-color: green;
   border-radius: 10px;
-  margin: 1rem;
+  margin: 0.33rem auto 2rem;
   border: 1px solid white;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 #signup-continue:hover {
   background-color: white;
@@ -117,8 +116,8 @@
 }
 
 .already-account {
-  font-size: .66rem;
-  opacity: .7;
+  font-size: 0.66rem;
+  opacity: 0.7;
   pointer-events: none;
 }
 
@@ -126,14 +125,15 @@
   margin-top: 1rem;
   border-left: 3px solid black;
   border-right: 3px solid black;
-  padding: .33rem .66rem;
+  padding: 0.33rem 0.66rem;
   border-radius: 25%;
-  transition: all .3s;
+  transition: all 0.3s;
+  font-size: 0.66rem;
 }
 #linkLogin:hover {
   text-decoration: none;
   color: green;
   border-left: 3px solid white;
   border-right: 3px solid white;
-  padding: .33rem .99rem;
+  padding: 0.33rem 0.99rem;
 }

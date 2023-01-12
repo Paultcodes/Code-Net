@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -14,76 +14,74 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
+      unique: false
     },
-
     first_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     border_glow: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
     bio: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: false
     },
     github_url: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: false,
+      unique: false
     },
     pic: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     header: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '/images/header.jpg',
+      defaultValue: "/images/header.jpg"
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [4],
-      },
+        len: [4]
+      }
     },
     level: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 1,
+      defaultValue: 1
     },
 
     likes: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: 0,
-    },
+      defaultValue: 0
+    }
   },
   {
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
-      },
+      }
     },
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user"
   }
 );
 

@@ -1,13 +1,25 @@
-<div class='box'>
-  <div class='form'>
-    <h1 class='form__title'>Login</h1>
-    <input class='username-input form__input username-input' type='text' />
-    <input class='password-input form__input' type='password' />
-    <h3 class="warning-text"></h3>
-    <button class='submit-login'>Submit</button>
+<div class="box">
+  <div class="form login-form">
+    <div class="form-content-container">
 
-    <a href="/signup/user">Create an account</a>
+      <h1 class="form__title login-header">LOGIN</h1>
+      <label>Email</label>
+      <input
+        class="username-input form__input username-input login-username"
+        type="text"
+      />
+      <label>Password</label>
+      <input
+        class="password-input form__input login-password"
+        type="password"
+      />
+      <h3 class="warning-text"></h3>
+      <button id="login-continue" class="submit-login">CONTINUE</button>
 
+      <p class="no-account">Don't have an account?</p>
+      <a id="linkSignup" href="/signup/user">SIGNUP</a>
+
+    </div>
   </div>
 </div>
-<script src='/js/login.js'></script>
+<script src="/js/login.js"></script>
